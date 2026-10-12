@@ -1,0 +1,488 @@
+{
+  "project": {
+    "name": "Bayberry integration",
+    "brief": "Out of Pocket is expanding, fast, and is now running more big projects at once than any newsletter company should. This is one of them. OOP now runs a medical billing business, OOP Revenue, which bills for about 300 doctors' offices. Don't ask. OOP Revenue just bought Bayberry Billing, a smaller billing company with 90 doctors' offices as clients, and has 4 weeks to move all 90 onto OOP's systems: billing, logins, payroll, email, and phones. Bayberry's old billing system shuts off on Nov 16 and Graham already promised the board, so the date is not moving. The project tracker says things are mostly green. Your job is to figure out what's really going on before cutover day",
+    "company": "Out of Pocket Health, a healthcare newsletter and events company that is now expanding into a lot of things at once",
+    "product": "Bayberry Billing, a smaller billing company that OOP Revenue just bought, with 90 doctors' offices as clients. The project moves all of them onto OOP's systems",
+    "today": "2026-10-17",
+    "deadline": "2026-11-16",
+    "deadlineLabel": "Cutover day",
+    "context": "Bayberry's old billing system shuts off on Nov 16, and Graham promised the board everyone would be on one system by then, so the date is not moving"
+  },
+  "team": {
+    "Graham": {
+      "role": "Runs OOP Revenue, OOP's medical billing business. Bought Bayberry. Promised the board one system by Nov 16"
+    },
+    "Ines": {
+      "role": "Integration lead. Joined from a consulting firm 3 weeks ago"
+    },
+    "Wes": {
+      "role": "IT lead, OOP Revenue"
+    },
+    "Patty": {
+      "role": "Office manager, Bayberry. Has worked there 19 years. Knows where everything is"
+    },
+    "Owen": {
+      "role": "Finance, OOP Revenue"
+    },
+    "Lena": {
+      "role": "HR, OOP Revenue"
+    },
+    "Marcus": {
+      "role": "Client Success, OOP Revenue"
+    },
+    "Tasha": {
+      "role": "Billing team lead, Bayberry"
+    },
+    "Rick": {
+      "role": "Bayberry co-founder. Left the company when the deal closed"
+    },
+    "Everyone": {
+      "role": ""
+    }
+  },
+  "tickets": [
+    {
+      "id": "M-6",
+      "title": "Hand over Bayberry passwords and admin access",
+      "owner": "Patty",
+      "status": "To Do",
+      "start": "2026-08-24",
+      "due": "2026-09-04",
+      "updated": "7 weeks ago",
+      "desc": "Passwords",
+      "comments": [
+        {
+          "author": "Wes",
+          "time": "7 weeks ago",
+          "text": "@Patty need the admin passwords when you get a sec"
+        }
+      ]
+    },
+    {
+      "id": "M-7",
+      "title": "Walk our team through Bayberry's clients",
+      "owner": "Patty",
+      "status": "To Do",
+      "start": "2026-11-02",
+      "due": "2026-11-06",
+      "waitingText": "Patty finding time",
+      "updated": "4 weeks ago",
+      "desc": "Patty walks OOP Revenue's billing team through each Bayberry client: who pays late, which doctors code creatively, and which office manager to call instead of the doctor. Done when our team can work Bayberry accounts without asking Patty",
+      "comments": [
+        {
+          "author": "Patty",
+          "time": "4 weeks ago",
+          "text": "Happy to do this, just need to find the time"
+        }
+      ]
+    },
+    {
+      "id": "M-14",
+      "title": "Bayberry's main phone number",
+      "owner": "Graham",
+      "status": "To Do",
+      "start": "",
+      "due": "",
+      "updated": "9 weeks ago",
+      "desc": "TBD, will fill in after close",
+      "comments": []
+    },
+    {
+      "id": "M-15",
+      "title": "Save a copy of Bayberry's old records before shutoff",
+      "owner": "",
+      "status": "To Do",
+      "start": "2026-11-09",
+      "due": "2026-11-13",
+      "updated": "6 weeks ago",
+      "desc": "Save a copy of Bayberry's old records before shutoff",
+      "comments": []
+    },
+    {
+      "id": "M-1",
+      "title": "Integrate Bayberry",
+      "owner": "Everyone",
+      "status": "In Progress",
+      "start": "2026-08-17",
+      "due": "2026-11-16",
+      "updated": "Yesterday",
+      "desc": "Bring Bayberry fully into OOP",
+      "comments": [
+        {
+          "author": "Graham",
+          "time": "3 weeks ago",
+          "text": "Huge milestone team. Two families becoming one 💙"
+        },
+        {
+          "author": "Ines",
+          "time": "2 weeks ago",
+          "text": "Reminder that all integration updates go in the IMO tracker, not here"
+        },
+        {
+          "author": "Tasha",
+          "time": "1 week ago",
+          "text": "What is the IMO tracker"
+        },
+        {
+          "author": "Wes",
+          "time": "1 week ago",
+          "text": "Quick one: on Nov 17, do Bayberry clients log into our portal or theirs?"
+        },
+        {
+          "author": "Marcus",
+          "time": "6 days ago",
+          "text": "Ours. I think?"
+        },
+        {
+          "author": "Patty",
+          "time": "5 days ago",
+          "text": "Theirs is ours now. Or ours is theirs"
+        },
+        {
+          "author": "Graham",
+          "time": "Yesterday",
+          "text": "Love the collaboration here"
+        }
+      ],
+      "commentCount": 57
+    },
+    {
+      "id": "M-5",
+      "title": "Export all Bayberry billing data",
+      "owner": "Patty",
+      "status": "In Progress",
+      "start": "2026-08-31",
+      "due": "2026-10-23",
+      "updated": "6 days ago",
+      "desc": "Export everything from Bayberry's billing system: patient balances, open claims, payment history, and client contracts. Patty is the only one with admin access",
+      "comments": [
+        {
+          "author": "Patty",
+          "time": "6 days ago",
+          "text": "Working on it between everything else. The system only exports one client at a time"
+        }
+      ]
+    },
+    {
+      "id": "M-8",
+      "title": "Move Bayberry's claims into our billing system",
+      "owner": "Wes",
+      "status": "In Progress",
+      "note": "On track",
+      "start": "2026-09-21",
+      "due": "2026-11-11",
+      "waiting": [
+        "M-5"
+      ],
+      "updated": "Today",
+      "desc": "Load Bayberry's open claims and balances into OOP Revenue's billing system so we can keep collecting for their clients after cutover. Done when every open dollar in the old system shows up in ours",
+      "comments": [
+        {
+          "author": "Wes",
+          "time": "2 weeks ago",
+          "text": "On track"
+        },
+        {
+          "author": "Wes",
+          "time": "Today",
+          "text": "ETL dry run complete. 14% of legacy claim records failed schema validation (missing NPI/taxonomy on pre-2024 rows), quarantined pending manual remediation. Open A/R not yet reconciled post-load, current variance ~$2.1M. Cutover plan unchanged"
+        }
+      ]
+    },
+    {
+      "id": "M-10",
+      "title": "Integration operating model",
+      "owner": "Ines",
+      "status": "In Progress",
+      "start": "2026-09-28",
+      "due": "2026-11-16",
+      "updated": "5 days ago",
+      "desc": "Stand up an integration management office (IMO) cadence to drive cross-functional alignment across workstreams. Key deliverables include a RACI, a synergy tracker, and a day-in-the-life future state for both legacy orgs. Want to capture quick wins while also laying the foundation for a durable target operating model. Will socialize with leadership once we've pressure-tested the framework. More to come",
+      "comments": [
+        {
+          "author": "Tasha",
+          "time": "4 days ago",
+          "text": "What does this mean for me"
+        }
+      ]
+    },
+    {
+      "id": "M-11",
+      "title": "Move Bayberry's website and email domain",
+      "owner": "Rick",
+      "status": "In Progress",
+      "start": "2026-08-10",
+      "due": "2026-08-28",
+      "updated": "9 weeks ago",
+      "desc": "Move bayberrybilling.com and every Bayberry email address over to OOP",
+      "comments": [
+        {
+          "author": "Rick",
+          "time": "9 weeks ago",
+          "text": "Will knock this out this week. Just need to remember which email I registered it under"
+        }
+      ]
+    },
+    {
+      "id": "M-13",
+      "title": "Client welcome letter",
+      "owner": "Graham",
+      "status": "In Progress",
+      "start": "2026-10-12",
+      "due": "2026-10-26",
+      "updated": "3 days ago",
+      "desc": "Letter from Graham welcoming Bayberry's clients to the Out of Pocket family",
+      "comments": [
+        {
+          "author": "Graham",
+          "time": "3 days ago",
+          "text": "Writing this one myself. The personal touch matters"
+        }
+      ]
+    },
+    {
+      "id": "M-2",
+      "title": "Set up OOP logins for Bayberry staff",
+      "owner": "Wes",
+      "status": "Blocked",
+      "start": "2026-09-28",
+      "due": "2026-10-23",
+      "waiting": [
+        "M-3"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Create logins for our billing system, email, and CRM for every Bayberry employee who's staying. Done when everyone on HR's list can log in",
+      "comments": [
+        {
+          "author": "Wes",
+          "time": "2 weeks ago",
+          "text": "Need the final list from Lena first. Not making 30 logins for people who might not be here"
+        }
+      ]
+    },
+    {
+      "id": "M-3",
+      "title": "Final list of Bayberry staff who are staying",
+      "owner": "Lena",
+      "status": "Blocked",
+      "start": "2026-09-21",
+      "due": "2026-10-16",
+      "waiting": [
+        "M-4"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Final list of which Bayberry employees stay, and in what role. Depends on how many clients actually move over, since that decides how much work there is",
+      "comments": [
+        {
+          "author": "Lena",
+          "time": "2 weeks ago",
+          "text": "@Marcus how many clients are we actually keeping? That decides how many billers we need"
+        }
+      ]
+    },
+    {
+      "id": "M-4",
+      "title": "Confirm which Bayberry clients are moving over",
+      "owner": "Marcus",
+      "status": "Blocked",
+      "start": "2026-09-21",
+      "due": "2026-10-09",
+      "waiting": [
+        "M-2"
+      ],
+      "updated": "3 weeks ago",
+      "desc": "Confirm which of Bayberry's 90 clients are moving to OOP. Bayberry staff will enter their clients into our CRM once they have logins",
+      "comments": [
+        {
+          "author": "Marcus",
+          "time": "3 weeks ago",
+          "text": "Bayberry folks will put their clients in the CRM as soon as Wes gives them logins"
+        }
+      ]
+    },
+    {
+      "id": "M-18",
+      "title": "Combine the two companies' books",
+      "owner": "Owen",
+      "status": "Blocked",
+      "start": "2026-10-05",
+      "due": "2026-11-06",
+      "waiting": [
+        "M-8"
+      ],
+      "updated": "1 week ago",
+      "desc": "Merge both companies' finances into one set of books before year-end. Needs the migrated balances from M-8 to match Bayberry's old system",
+      "comments": [
+        {
+          "author": "Owen",
+          "time": "1 week ago",
+          "text": "Blocked until the moved balances match Bayberry's old system"
+        }
+      ]
+    },
+    {
+      "id": "M-9",
+      "title": "Merge payroll",
+      "owner": "Lena",
+      "status": "In Review",
+      "note": "90% done",
+      "start": "2026-09-07",
+      "due": "2026-10-30",
+      "updated": "3 weeks ago",
+      "desc": "",
+      "comments": [
+        {
+          "author": "Lena",
+          "time": "3 weeks ago",
+          "text": "Almost there. One small thing with the Bayberry folks who live out of state, will sort it out"
+        }
+      ]
+    },
+    {
+      "id": "M-12",
+      "title": "Tell Bayberry clients about the switch",
+      "owner": "Marcus",
+      "status": "In Review",
+      "note": "90% done",
+      "start": "2026-10-05",
+      "due": "2026-10-26",
+      "waitingText": "Graham",
+      "updated": "1 week ago",
+      "desc": "Email to all 90 Bayberry clients explaining what's changing and when. Current draft opens with: \"Nothing will change for you\"",
+      "comments": [
+        {
+          "author": "Marcus",
+          "time": "1 week ago",
+          "text": "Basically done, just waiting on Graham's ok"
+        }
+      ]
+    },
+    {
+      "id": "M-16",
+      "title": "Train Bayberry staff on our billing system",
+      "owner": "Ines",
+      "status": "Done",
+      "start": "2026-10-05",
+      "due": "2026-10-16",
+      "updated": "2 weeks ago",
+      "desc": "Get every Bayberry biller comfortable on OOP Revenue's billing system before cutover. Done when they can post a payment and work a denial without help",
+      "comments": [
+        {
+          "author": "Ines",
+          "time": "2 weeks ago",
+          "text": "Sent everyone the training guide. Marking done"
+        },
+        {
+          "author": "Tasha",
+          "time": "2 weeks ago",
+          "text": "Is there a version that isn't 140 pages"
+        }
+      ]
+    },
+    {
+      "id": "M-17",
+      "title": "Announce the acquisition",
+      "owner": "Graham",
+      "status": "Done",
+      "start": "2026-08-17",
+      "due": "2026-08-17",
+      "updated": "9 weeks ago",
+      "desc": "Announce the deal to clients, staff, and the industry",
+      "comments": [
+        {
+          "author": "Graham",
+          "time": "9 weeks ago",
+          "text": "It's out! \"A seamless transition for every client\" 🎉"
+        }
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "author": "Graham",
+      "time": "Thu 1:05 PM",
+      "text": "Team, 4 weeks until we're one company on one system. Ines tells me we're green across the board 💚"
+    },
+    {
+      "author": "Ines",
+      "time": "Thu 1:12 PM",
+      "text": "Directionally green. A few workstreams are amber pending inputs. Will socialize the full readout once the IMO tracker is stood up"
+    },
+    {
+      "author": "Owen",
+      "time": "Thu 2:30 PM",
+      "text": "Wes, the claims load says there's a $2.1M variance. Is that a lot of variance or a little variance"
+    },
+    {
+      "author": "Wes",
+      "time": "Thu 2:48 PM",
+      "text": "It means $2.1M that our clients are owed is in Bayberry's system but not in ours yet. Also about 1 in 7 old claims didn't load. Working on it. Still on track"
+    },
+    {
+      "author": "Marcus",
+      "time": "Thu 3:15 PM",
+      "text": "Client email is ready to go. The main message is that nothing will change for them, which clients love"
+    },
+    {
+      "author": "Tasha",
+      "time": "Thu 3:22 PM",
+      "text": "Their login changes, their invoices look different, and the phone number they've called for 11 years might stop working. Otherwise yes, nothing"
+    },
+    {
+      "author": "Graham",
+      "time": "Thu 3:40 PM",
+      "text": "I'm also sending clients a personal welcome letter. Double the warmth"
+    },
+    {
+      "author": "Wes",
+      "time": "Fri 8:40 AM",
+      "text": "Does anyone have a way to reach Rick? The Bayberry email domain is registered to his personal email and it renews Nov 19. If it lapses, nobody at Bayberry gets email"
+    },
+    {
+      "author": "Patty",
+      "time": "Fri 9:02 AM",
+      "text": "Friendly reminder that I'm out Nov 6 to Nov 23. Booked it last January. It's a cruise. I will be on a boat"
+    },
+    {
+      "author": "Lena",
+      "time": "Fri 9:05 AM",
+      "text": "Patty, cutover is Nov 16"
+    },
+    {
+      "author": "Patty",
+      "time": "Fri 9:06 AM",
+      "text": "I will be on a boat"
+    },
+    {
+      "author": "Tasha",
+      "time": "Fri 9:30 AM",
+      "text": "Unrelated, but when Bayberry switched clearinghouses in 2023, getting re-approved by all the insurance companies took about 6 weeks. Fun times. Anyway who's doing donuts Friday"
+    }
+  ],
+  "notes": {
+    "title": "Integration steering committee",
+    "date": "2026-10-15",
+    "attendees": [
+      "Graham",
+      "Ines",
+      "Wes",
+      "Owen",
+      "Marcus",
+      "Lena"
+    ],
+    "bullets": [
+      "Ines presented the integration framework (34 slides). Got through slide 6. The other 28 will be socialized async",
+      "Overall status: Ines says green, Wes says on track. Owen asked what \"variance\" means in the claims update. Wes said \"money.\" Next topic",
+      "Logins, staff list, client list: Wes is waiting on Lena, Lena is waiting on Marcus, Marcus is waiting on Wes. Ines will add it to the RACI",
+      "Payroll: Lena says 90% done. The last part is 9 Bayberry employees who live in two other states. OOP's payroll is only set up for one state. Lena is \"looking into it\"",
+      "Client comms: Marcus's email and Graham's letter are both going out to the same 90 clients. Group agreed this is \"extra warm\"",
+      "Bayberry's main phone number: Graham said it's on his list. It has been on his list since the deal closed",
+      "Owen asked who is saving a copy of Bayberry's old records before the system shuts off. Silence. Moved on",
+      "Training: marked done. Ines confirmed the guide was emailed. Nobody knows if anyone opened it",
+      "Group agreed Patty should own the client walkthroughs since she knows everything. Patty was not invited to this meeting. Neither was Tasha",
+      "Cutover stays Nov 16. Graham has already told the board",
+      "Action items: Ines to set up a meeting about meeting cadence"
+    ]
+  }
+}

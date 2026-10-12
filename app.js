@@ -18,6 +18,11 @@ const fmtY = s => s ? D(s).toLocaleDateString("en-US",{month:"short",day:"numeri
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const slugOk = s => /^[a-z0-9-]+$/.test(s || "");
 const getJSON = url => fetch(url, {cache:"no-cache"}).then(r => { if(!r.ok) throw new Error(r.status); return r.json(); });
+// Each project gets a stable color and a short key (the task id prefix, like "PP" from "PP-12"), like Jira projects do
+const projColor = slug => PALETTE[[...slug].reduce((h,c)=>(h*31 + c.charCodeAt(0)) >>> 0, 7) % PALETTE.length];
+const projKey = b => (String((b.tickets[0]||{}).id || "").match(/^[A-Za-z]+/) || [""])[0].toUpperCase();
+const projLead = b => Object.keys(b.team || {}).find(n => n !== "Everyone") || "";
+const norm = s => String(s || "").toLowerCase();
 function showMsg(html){ $("#msg").innerHTML = html; $("#msg").hidden = false; }
 
 const params = new URLSearchParams(location.search);
@@ -25,22 +30,43 @@ if(params.get("board")) loadBoard(params.get("board"));
 else if(params.get("table")) loadTable(params.get("table"));
 else loadLanding();
 
-/* Landing */
+/* Landing: a Jira-style projects directory */
 async function loadLanding(){
   let m;
   try { m = await getJSON("tables.json"); }
-  catch { showMsg("Couldn't load the list of tables. Refresh to try again"); return; }
-  document.title = m.title || "Project boards";
+  catch { showMsg("Couldn't load the list of projects. Refresh to try again"); return; }
+  document.title = m.title || "Projects";
   const boards = await Promise.all(m.tables.map(t => slugOk(t.board) ? getJSON(`boards/${t.board}.json`).catch(()=>null) : null));
-  $("#landing").innerHTML = `<h1>${esc(m.title||"")}</h1><p class="sub">${esc(m.subtitle||"")}</p><ul class="tables">${
-    m.tables.map((t,i)=>{
-      const b = boards[i];
-      const num = `<span class="tnum">Table<b>${esc(t.table)}</b></span>`;
-      if(!b) return `<li><div class="tablecard soon">${num}<div><div class="tname">Coming soon</div></div></div></li>`;
-      return `<li><a class="tablecard" href="?board=${esc(t.board)}">${num}<div><div class="tname">${esc(b.project.name)}</div><div class="tdesc">${esc(b.project.company)}</div></div></a></li>`;
-    }).join("")}</ul>`;
+  const rows = m.tables.map((t,i)=>{
+    const b = boards[i];
+    if(!b) return `<tr class="soon"><td class="tno">${esc(t.table)}</td><td colspan="5">Coming soon</td></tr>`;
+    const p = b.project, key = projKey(b), lead = projLead(b);
+    const late = b.tickets.filter(x => x.due && x.status !== "Done" && D(x.due) < D(p.today)).length;
+    const blocked = b.tickets.filter(x => x.status === "Blocked").length;
+    const left = days(p.today, p.deadline);
+    const q = norm([t.table, p.name, p.product, key, lead].join(" "));
+    return `<tr data-href="?board=${esc(t.board)}" data-q="${esc(q)}">
+      <td class="tno">${esc(t.table)}</td>
+      <td><a class="pcell" href="?board=${esc(t.board)}"><span class="pav sm" style="background:${projColor(t.board)}">${esc(p.name[0])}</span><span><b>${esc(p.name)}</b><small>${esc(p.product || "")}</small></span></a></td>
+      <td class="key">${esc(key)}</td>
+      <td class="lead"><span class="who"><span class="av" style="background:${PALETTE[0]}">${esc(lead[0]||"?")}</span>${esc(lead)}</span></td>
+      <td class="due"><b>${esc(p.deadlineLabel || "Deadline")}</b><small>${fmt(p.deadline)}, ${left} days</small></td>
+      <td class="health">${late ? `<span class="chip late">${late} overdue</span>` : ""}${blocked ? `<span class="chip blk">${blocked} blocked</span>` : ""}</td>
+    </tr>`;
+  }).join("");
+  $("#landing").innerHTML = `<div class="lhead"><h1>Projects</h1><p class="sub">${esc(m.subtitle||"")}</p></div>
+    <div class="dirwrap"><table class="dir"><thead><tr><th>Table</th><th>Name</th><th class="key">Key</th><th class="lead">Lead</th><th>Due</th><th>Health</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   $("#landing").className = "landing";
   $("#landing").hidden = false;
+  $("#q").placeholder = "Search projects";
+  $("#q").addEventListener("input", ()=>{
+    const q = norm($("#q").value.trim());
+    document.querySelectorAll(".dir tbody tr[data-q]").forEach(r => r.hidden = q && !r.dataset.q.includes(q));
+  });
+  $("#landing").addEventListener("click", e=>{
+    const r = e.target.closest("tr[data-href]");
+    if(r && !e.target.closest("a")) location.href = r.dataset.href;
+  });
 }
 
 // ?table=N redirects to that table's board, so a QR code can stay put if a board is renamed
@@ -62,24 +88,27 @@ async function loadBoard(slug){
     showMsg(`There's no board called "${esc(slug)}". <a href="./">See all tables</a>`);
     return;
   }
-  // Starter prompt and site settings are optional; the board still works without them
-  const [prompt, site] = await Promise.all([
-    fetch("starter-prompt.txt", {cache:"no-cache"}).then(r => r.ok ? r.text() : "").catch(() => ""),
-    getJSON("tables.json").catch(() => ({}))
-  ]);
+  // The starter prompt is optional; the board still works without it
+  const prompt = await fetch("starter-prompt.txt", {cache:"no-cache"}).then(r => r.ok ? r.text() : "").catch(() => "");
+  // The show-and-tell deck link lives in tables.json so it can be added without touching code
+  const site = await getJSON("tables.json").catch(() => ({}));
+  if(site.shareUrl && /^https:\/\//.test(site.shareUrl)){
+    $("#sharebtn").href = $("#sharelink").href = site.shareUrl;
+    $("#sharebox").hidden = $("#sharelink").hidden = false;
+  }
   $("#app").hidden = false;
-  initBoard(slug, data, prompt, site);
+  initBoard(slug, data, prompt);
 }
 
 /* Board page */
-function initBoard(SLUG, DATA, PROMPT, SITE){
+function initBoard(SLUG, DATA, PROMPT){
   const PROJECT = DATA.project;
   const T = DATA.tickets;
   const SLACK = DATA.slack || [];
   const NOTES = DATA.notes || {};
   const PEOPLE = {};
   Object.entries(DATA.team || {}).forEach(([n,p],i)=>{ PEOPLE[n] = {role:p.role||"", color:p.color||PALETTE[i % PALETTE.length]}; });
-  PEOPLE.Everyone = PEOPLE.Everyone || {role:"",color:"#334155"};
+  PEOPLE.Everyone = {role:"",color:"#334155"};
   const LABEL = PROJECT.deadlineLabel || "Deadline";
 
   const byId = Object.fromEntries(T.map(t=>[t.id,t]));
@@ -89,28 +118,44 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
   const avatar = n => `<span class="av" style="background:${n && PEOPLE[n] ? PEOPLE[n].color : "#9ca3af"}" title="${esc(n||"No owner")}">${esc(initials(n))}</span>`;
   const waitingStr = t => t.waiting ? t.waiting.join(", ") : (t.waitingText || "");
   const idNum = id => +(String(id).match(/\d+/) || [0])[0];
+  // commentCount can be bigger than the comments shown (a ticket "with 43 comments" only shows a few)
+  const comments = t => t.comments || [];
+  const commentTotal = t => Math.max(t.commentCount || 0, comments(t).length);
   const hasSlack = SLACK.length > 0;
   const hasNotes = !!(NOTES.title || (NOTES.bullets && NOTES.bullets.length));
 
   document.title = PROJECT.name;
   $("#pname").textContent = PROJECT.name;
-  $("#psub").textContent = PROJECT.company;
+  $("#crumbproj").textContent = PROJECT.name;
+  $("#spname").textContent = PROJECT.name;
+  $("#spsub").textContent = `Project ${projKey(DATA)}`.trim();
+  $("#pav").textContent = PROJECT.name[0];
+  $("#pav").style.background = projColor(SLUG);
+  $("#slackcount").textContent = SLACK.length || "";
+  $("#psub").textContent = PROJECT.product || PROJECT.company;
+  if(PROJECT.brief){ $("#brief").textContent = PROJECT.brief; $("#briefwrap").hidden = false; }
   const left = days(PROJECT.today, PROJECT.deadline);
   $("#launchpill").textContent = `${LABEL} ${fmt(PROJECT.deadline)}, ` +
     (left > 1 ? `${left} days away` : left === 1 ? "tomorrow" : left === 0 ? "today" : `${-left} days ago`);
 
+  const qOf = t => norm([t.id, t.title, t.owner, t.status, t.desc].join(" "));
   /* Board */
+  // Ticket ids in "Waiting on" jump to that ticket, so a chain of blockers can be followed from the card
+  const waitChip = t => t.waiting ? `<span class="chip wait">Waiting on ${t.waiting.map(w=>byId[w]
+      ? `<span class="jump" data-jump="${esc(w)}" title="${esc(byId[w].title)}">${esc(w)}</span>` : esc(w)).join(", ")}</span>`
+    : t.waitingText ? `<span class="chip wait">Waiting on ${esc(t.waitingText)}</span>` : "";
   function renderBoard(){
     $("#board").innerHTML = COLUMNS.map(c=>{
       const cards = T.filter(t=>t.status===c.key);
       return `<div class="column"><div class="colhead"><span class="dot" style="background:${c.color}"></span>${c.key} <span class="count">${cards.length}</span></div>${
-        cards.map(t=>`<button class="card" data-id="${esc(t.id)}">
+        cards.map(t=>`<button class="card${isLate(t)?" late":""}" data-id="${esc(t.id)}" data-q="${esc(qOf(t))}">
           <div class="cid">${esc(t.id)}</div>
           <div class="ctitle">${esc(t.title)}</div>
           <div class="meta">${avatar(t.owner)}
             ${t.due ? `<span class="chip ${isLate(t)?"late":""}">${isLate(t)?"Overdue, was due ":"Due "}${fmt(t.due)}</span>` : `<span class="chip">No due date</span>`}
-            ${waitingStr(t) ? `<span class="chip wait">Waiting on ${esc(waitingStr(t))}</span>` : ""}
+            ${waitChip(t)}
             ${t.note ? `<span class="note">${esc(t.note)}</span>` : ""}
+            ${commentTotal(t) ? `<span class="ccount" title="${commentTotal(t)} comments">&#128172; ${commentTotal(t)}</span>` : ""}
           </div></button>`).join("")}</div>`;
     }).join("");
   }
@@ -141,7 +186,7 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
         inner = `<div class="bar" style="left:${x}px;width:${w}px;background:${colOf(t)}">${t.note?esc(t.note):""}</div>`;
         if(isLate(t)) inner += `<div class="overdue" style="left:${x+w}px;width:${xOf(PROJECT.today)-(x+w)+W}px"></div>`;
       }
-      rows += `<div class="tlrow"><button class="tllabel" data-id="${esc(t.id)}">${avatar(t.owner)}<span class="t"><b>${esc(t.id)}</b> ${esc(t.title)}</span></button><div class="tltrack" style="width:${trackW}px">${inner}</div></div>`;
+      rows += `<div class="tlrow" data-q="${esc(qOf(t))}"><button class="tllabel" data-id="${esc(t.id)}">${avatar(t.owner)}<span class="t"><b>${esc(t.id)}</b> ${esc(t.title)}</span></button><div class="tltrack" style="width:${trackW}px">${inner}</div></div>`;
     }
     const lines = [
       {d:PROJECT.today,label:"Today",color:"var(--ink)"},
@@ -154,18 +199,7 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
   }
 
   /* List + Issues */
-  const dueChip = t => t.due ? `<span class="chip ${isLate(t)?"late":""}">${isLate(t)?"Overdue, ":""}${fmt(t.due)}</span>` : `<span class="chip">No date</span>`;
-  function renderList(){
-    $("#list").innerHTML = COLUMNS.map(c=>{
-      const r = T.filter(t=>t.status===c.key);
-      return `<div class="lsec"><span class="dot" style="background:${c.color}"></span>${c.key} <span class="count">${r.length}</span></div>` +
-        r.map(t=>`<button class="lrow" data-id="${esc(t.id)}"><span class="circ ${t.status==="Done"?"done":""}"></span><span>${esc(t.title)} <span class="cid">${esc(t.id)}</span></span><span class="lown">${avatar(t.owner)}${esc(t.owner||"No owner")}</span><span>${dueChip(t)}</span></button>`).join("");
-    }).join("");
-  }
-  function renderIssues(){
-    const sorted = [...T].sort((a,b)=>idNum(a.id)-idNum(b.id) || String(a.id).localeCompare(b.id));
-    $("#issues").innerHTML = sorted.map(t=>`<tr data-id="${esc(t.id)}" tabindex="0"><td class="key">${esc(t.id)}</td><td>${esc(t.title)}</td><td><span class="loz" style="--c:${colOf(t)}">${esc(t.status)}</span></td><td><span class="who">${avatar(t.owner)}${esc(t.owner||"Unassigned")}</span></td><td>${dueChip(t)}</td><td class="muted">${esc(t.updated)}</td></tr>`).join("");
-  }
+
 
   /* Slack */
   const mentions = s => esc(s).replace(/(^|[\s(])@([A-Za-z][\w-]*)/g, (m,pre,n)=>`${pre}<span class="mention">@${n}</span>`);
@@ -204,13 +238,16 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
         <dt>Last updated</dt><dd>${esc(t.updated)}</dd>
       </dl>
       <div class="desc">${t.desc?esc(t.desc):"No description"}</div>
+      ${commentTotal(t) ? `<h3 class="chead">Comments <span class="count">${commentTotal(t)}</span></h3>
+      ${comments(t).map(c=>`<div class="smsg">${avatar(c.author)}<div><div><span class="sname">${esc(c.author||"Unknown")}</span><span class="stime">${esc(c.time||"")}</span></div><div class="stext">${mentions(c.text||"")}</div></div></div>`).join("")}
+      ${commentTotal(t) > comments(t).length ? `<p class="more-c">${commentTotal(t) - comments(t).length} older comments not shown</p>` : ""}` : ""}
     </aside>`;
     $("#drawerroot .close").focus();
   }
   function closeDrawer(){ $("#drawerroot").innerHTML = ""; }
   document.addEventListener("click", e=>{
-    const card = e.target.closest("[data-id]"); if(card){ openTicket(card.dataset.id); return; }
     const jump = e.target.closest("[data-jump]"); if(jump){ openTicket(jump.dataset.jump); return; }
+    const card = e.target.closest("[data-id]"); if(card){ openTicket(card.dataset.id); return; }
     if(e.target.closest("[data-close]")) closeDrawer();
   });
   document.addEventListener("keydown", e=>{
@@ -220,7 +257,7 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
 
   /* Raw data */
   function asMarkdown(){
-    let s = `# ${PROJECT.name}\n\nCompany: ${PROJECT.company}\nProduct: ${PROJECT.product}\nToday: ${fmtY(PROJECT.today)}\n${LABEL}: ${fmtY(PROJECT.deadline)}. ${PROJECT.context||""}\n\n## Team\n`;
+    let s = `# ${PROJECT.name}\n\n${PROJECT.brief ? PROJECT.brief + "\n\n" : ""}Company: ${PROJECT.company}\nProduct: ${PROJECT.product}\nToday: ${fmtY(PROJECT.today)}\n${LABEL}: ${fmtY(PROJECT.deadline)}. ${PROJECT.context||""}\n\n## Team\n`;
     for(const [n,p] of Object.entries(PEOPLE)) if(p.role) s += `- ${n}: ${p.role}\n`;
     s += `\n# Tickets\n`;
     for(const c of COLUMNS){
@@ -230,6 +267,7 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
         if(t.note) s += `Status note: ${t.note}\n`;
         if(waitingStr(t)) s += `Waiting on: ${waitingStr(t)}\n`;
         s += `Last updated: ${t.updated}\nDescription: ${t.desc||"None"}\n`;
+        if(commentTotal(t)) s += `Comments (${commentTotal(t)}):\n` + comments(t).map(c=>`  [${c.time||""}] ${c.author||"Unknown"}: ${c.text||""}\n`).join("");
       }
     }
     if(hasSlack){
@@ -245,14 +283,14 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
     return s;
   }
   function asCSV(){
-    const cols = ["id","title","status","status_note","owner","start","due","waiting_on","last_updated","description"];
+    const cols = ["id","title","status","status_note","owner","start","due","waiting_on","last_updated","description","comment_count","comments"];
     const q = v => `"${String(v??"").replace(/"/g,'""')}"`;
-    return [cols.join(",")].concat(T.map(t=>[t.id,t.title,t.status,t.note,t.owner,t.start,t.due,waitingStr(t),t.updated,t.desc].map(q).join(","))).join("\n");
+    return [cols.join(",")].concat(T.map(t=>[t.id,t.title,t.status,t.note,t.owner,t.start,t.due,waitingStr(t),t.updated,t.desc,commentTotal(t),comments(t).map(c=>`${c.author}: ${c.text}`).join(" | ")].map(q).join(","))).join("\n");
   }
   function asJSON(){
     const team = Object.fromEntries(Object.entries(PEOPLE).filter(([,p])=>p.role).map(([n,p])=>[n,{role:p.role}]));
     return JSON.stringify({project:PROJECT,team,
-      tickets:T.map(t=>({id:t.id,title:t.title,status:t.status,status_note:t.note||null,owner:t.owner||null,start:t.start||null,due:t.due||null,waiting_on:waitingStr(t)||null,last_updated:t.updated,description:t.desc||null})),
+      tickets:T.map(t=>({id:t.id,title:t.title,status:t.status,status_note:t.note||null,owner:t.owner||null,start:t.start||null,due:t.due||null,waiting_on:waitingStr(t)||null,last_updated:t.updated,description:t.desc||null,comment_count:commentTotal(t),comments:comments(t)})),
       slack:SLACK, notes:hasNotes?NOTES:null},null,2);
   }
   const FMTS = {md:{fn:asMarkdown,ext:"md",type:"text/markdown"},csv:{fn:asCSV,ext:"csv",type:"text/csv"},json:{fn:asJSON,ext:"json",type:"application/json"}};
@@ -266,40 +304,11 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
     document.querySelectorAll("[data-fmt]").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
     renderRaw();
   }));
-  /* Step 1: the team's sentence unlocks Copy for AI */
-  const KEY = "sentence:" + SLUG;
-  const store = {
-    get(){ try { return localStorage.getItem(KEY) || ""; } catch { return ""; } },
-    set(v){ try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch {} }
-  };
-  const sentence = () => $("#sentence").value.trim().replace(/\.$/, "");
-  function setLocked(locked){
-    $("#sentence").readOnly = locked;
-    $("#lockbtn").textContent = locked ? "Edit our sentence" : "Lock in our sentence";
-    $("#lockbtn").classList.toggle("primary", !locked);
-    $("#locked").hidden = locked;
-    $("#unlocked").hidden = !locked;
-    const url = SITE.submitUrl;
-    $("#submitlink").hidden = !(locked && url);
-    if(locked && url) $("#submitlink").href = url
-      .replace("{board}", encodeURIComponent(SLUG))
-      .replace("{project}", encodeURIComponent(PROJECT.name))
-      .replace("{sentence}", encodeURIComponent(sentence()));
-  }
-  $("#lockbtn").addEventListener("click", ()=>{
-    if(!$("#sentence").readOnly){
-      if(sentence().length < 5){ toast("Finish the sentence first"); $("#sentence").focus(); return; }
-      store.set(sentence()); setLocked(true);
-    } else { setLocked(false); $("#sentence").focus(); }
-  });
-  if(store.get()){ $("#sentence").value = store.get(); setLocked(true); }
-
-  /* Step 2: one paste with the starter prompt, the sentence, and all the data */
+  /* Copy for AI: one paste with the starter prompt and all the data */
   function asAIPrompt(){
-    const tpl = PROMPT || "Below is a made-up project. Our team thinks the thing that will sink it is {{sentence}}. What do you think, and what did we miss?\n\n{{data}}";
+    const tpl = PROMPT || "Below is a made-up project. Help us build a fun feature for it.\n\n{{data}}";
     const data = "---\n\n" + asMarkdown();
-    const out = tpl.replace(/\{\{sentence\}\}/g, sentence());
-    return out.includes("{{data}}") ? out.replace(/\{\{data\}\}/g, data) : out + "\n\n" + data;
+    return tpl.includes("{{data}}") ? tpl.replace(/\{\{data\}\}/g, data) : tpl + "\n\n" + data;
   }
   async function copyText(text, msg){
     try { await navigator.clipboard.writeText(text); toast(msg); }
@@ -326,10 +335,22 @@ function initBoard(SLUG, DATA, PROMPT, SITE){
   document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected", x===b?"true":"false"));
     document.querySelectorAll(".view").forEach(v=>v.hidden = v.id!=="view-"+b.dataset.view);
-    $("#hint").hidden = !["board","list","issues","timeline"].includes(b.dataset.view);
-    if(b.dataset.view==="timeline") renderTimeline();
+    $("#crumbview").textContent = b.textContent.replace(/\d+/g,"").trim();
+    $("#briefwrap").hidden = !PROJECT.brief || !["board","timeline"].includes(b.dataset.view);
+    if(b.dataset.view==="timeline"){ renderTimeline(); applySearch(); }
   }));
-  addEventListener("resize", ()=>{ if(!$("#view-timeline").hidden) renderTimeline(); });
+  // Search filters tasks on the Board and Gantt; typing from another view jumps to the Board
+  $("#q").placeholder = "Search tasks";
+  function applySearch(){
+    const q = norm($("#q").value.trim());
+    document.querySelectorAll("#board .card, #tl .tlrow[data-q]").forEach(el => el.hidden = q && !el.dataset.q.includes(q));
+  }
+  $("#q").addEventListener("input", ()=>{
+    const cur = document.querySelector('.tab[aria-selected="true"]').dataset.view;
+    if(!["board","timeline"].includes(cur)) document.querySelector('.tab[data-view="board"]').click();
+    applySearch();
+  });
+  addEventListener("resize", ()=>{ if(!$("#view-timeline").hidden){ renderTimeline(); applySearch(); } });
 
-  renderBoard(); renderList(); renderIssues(); renderSlack(); renderNotes(); renderRaw();
+  renderBoard(); renderSlack(); renderNotes(); renderRaw();
 }

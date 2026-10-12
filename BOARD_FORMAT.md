@@ -18,6 +18,7 @@ Paste this whole file into Claude chat when you generate a new board, and ask fo
     "deadline": "2026-11-23",
     "deadlineLabel": "Launch day",
     "context": "The CEO announced the launch date on stage, so it is not moving",
+    "brief": "A few sentences shown at the top of the board that set up the story",
     "slackChannel": "pillprice-launch"
   },
   "team": {
@@ -35,7 +36,11 @@ Paste this whole file into Claude chat when you generate a new board, and ask fo
       "due": "2026-11-20",
       "waiting": ["L-6"],
       "updated": "Never",
-      "desc": "Submit once Legal signs off"
+      "desc": "Submit once Legal signs off",
+      "commentCount": 4,
+      "comments": [
+        { "author": "Sam", "time": "2 weeks ago", "text": "Waiting on Priya" }
+      ]
     }
   ],
   "slack": [
@@ -53,7 +58,8 @@ Paste this whole file into Claude chat when you generate a new board, and ask fo
 ## Rules
 
 **project**
-- All fields are required except `slackChannel` (defaults to the slug)
+- All fields are required except `slackChannel` (defaults to the slug) and `brief`
+- `brief` is shown in a box at the top of the Board and Gantt views and at the top of the Copy for AI paste
 - `today` is the fake "today" inside the story. Overdue badges and the timeline use it, not the real date
 - `deadlineLabel` is what the header pill and timeline line say, like "Launch day" or "Go-live"
 
@@ -71,7 +77,9 @@ Paste this whole file into Claude chat when you generate a new board, and ask fo
 - `note` is optional, a short status note shown on the card (like "90% done")
 - `updated` is free text, like "2 weeks ago"
 - `desc` is free text; line breaks are kept
-- Ids sort by their number in the Issues view, so any prefix works (`L-`, `M-`, `CRED-`)
+- `comments` is optional: a list of `{ "author", "time", "text" }`, oldest first, shown in the ticket drawer
+- `commentCount` is optional. Use it when a ticket "has 43 comments" but only a few are written out
+- Ids can use any prefix (`L-`, `M-`, `CRED-`)
 
 **slack**
 - A list of messages, oldest first. Each needs `author`, `time`, `text`

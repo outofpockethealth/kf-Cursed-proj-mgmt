@@ -10,11 +10,32 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1 15 8 8 15 1 8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 5.5 10.5 8 8 10.5 5.5 8z"/></svg></span>Cursed</a>
+  <label class="search"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m10.5 10.5 3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Search" aria-label="Search" autocomplete="off"></label>
+  <span class="viewonly">View only</span>
+</header>
+
 <div id="landing" hidden></div>
 
-<div id="app" hidden>
-<header>
-  <a class="back" href="./">&larr; All tables</a>
+<div id="app" class="layout" hidden>
+<aside class="side">
+  <div class="sproj"><span class="pav" id="pav"></span><div class="sptext"><div class="spname" id="spname"></div><div class="spsub" id="spsub"></div></div></div>
+  <nav class="snav" role="tablist" aria-label="Project views">
+    <div class="sgroup">Tasks</div>
+    <button class="tab" role="tab" aria-selected="true" data-view="board"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2" width="3.5" height="12" rx="1"/><rect x="6.25" y="2" width="3.5" height="8" rx="1"/><rect x="11" y="2" width="3.5" height="10" rx="1"/></svg>Board</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="timeline"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="7" height="2.5" rx="1"/><rect x="4.5" y="6.75" width="8" height="2.5" rx="1"/><rect x="8" y="11" width="6.5" height="2.5" rx="1"/></svg>Gantt</button>
+    <div class="sgroup">Backchannel</div>
+    <button class="tab" role="tab" aria-selected="false" data-view="slack"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 1.5 4 14.5M12 1.5l-1.5 13M1.5 5.5h13M1 10.5h13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Slack <span class="tcount" id="slackcount"></span></button>
+    <button class="tab" role="tab" aria-selected="false" data-view="notes"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 1.5h6l3 3v10h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5.5 8h5M5.5 11h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Meeting notes</button>
+    <button class="tab cta" role="tab" aria-selected="false" data-view="data"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.6 4.4L14 7.5l-4.4 1.6L8 13.5 6.4 9.1 2 7.5l4.4-1.6z"/></svg>Copy for AI</button>
+    <a class="sharelink" id="sharelink" target="_blank" rel="noopener" hidden>Share your build &#8599;</a>
+  </nav>
+</aside>
+
+<div class="mainwrap">
+<div class="phead">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Projects</a><span>/</span><span id="crumbproj"></span><span>/</span><span id="crumbview">Board</span></nav>
   <div class="top">
     <div>
       <h1 id="pname"></h1>
@@ -22,23 +43,11 @@
     </div>
     <span class="launchpill" id="launchpill"></span>
   </div>
-  <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true" data-view="board">Board</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="list">List</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="issues">Issues</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="timeline">Timeline</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="slack">Slack</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="notes">Meeting notes</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="data">Copy for AI</button>
-    <span class="viewonly">View only. Copy the data to use it anywhere</span>
-  </div>
-</header>
+</div>
 
 <main>
-  <p class="hint" id="hint">Same tickets in every view. Board works like Trello, List like Asana, Issues like Jira</p>
+  <div class="briefwrap" id="briefwrap" hidden><p class="brief" id="brief"></p></div>
   <section class="view" id="view-board"><div class="board" id="board"></div></section>
-  <section class="view" id="view-list" hidden><div class="list" id="list"></div></section>
-  <section class="view" id="view-issues" hidden><div class="tablewrap"><table class="issues"><thead><tr><th>Key</th><th>Summary</th><th>Status</th><th>Assignee</th><th>Due</th><th>Updated</th></tr></thead><tbody id="issues"></tbody></table></div></section>
   <section class="view" id="view-timeline" hidden>
     <div class="tlwrap"><div class="tl" id="tl"></div></div>
     <div class="legend" id="legend"></div>
@@ -47,39 +56,33 @@
   <section class="view" id="view-notes" hidden><article class="doc" id="notes"></article></section>
   <section class="view" id="view-data" hidden>
     <div class="datapanel">
-      <h2>Step 1: Write your team's sentence</h2>
-      <p>Do this before you use any AI. Read the board, the Slack thread, and the meeting notes, then finish the sentence</p>
-      <label class="stem" for="sentence">The thing that will sink this project is&hellip;</label>
-      <textarea id="sentence" class="sentence" rows="3" placeholder="&hellip;because"></textarea>
-      <div class="btns">
-        <button class="btn primary" id="lockbtn">Lock in our sentence</button>
-        <a class="btn" id="submitlink" target="_blank" rel="noopener" hidden>Send it to the organizers</a>
+      <h2>Now make the work better, faster, weirder, or more fun</h2>
+      <p>Done digging through the board by hand? Take these tasks into your favorite AI and build something that makes the work better, faster, weirder, or more fun</p>
+      <p>This button copies a starter prompt plus the whole project: the board, the Slack thread, and the meeting notes. Paste it into Claude, ChatGPT, Gemini, or whatever you use. Everything here is made up, so paste away</p>
+      <div class="btns"><button class="btn primary" id="aibtn">Copy for AI</button></div>
+      <div class="share" id="sharebox" hidden>
+        <h3>Done? Share it</h3>
+        <p>Add a screenshot, a link, and one sentence to your team's slide in the show-and-tell deck. We'll present from it, so nobody has to plug in a laptop</p>
+        <a class="btn" id="sharebtn" target="_blank" rel="noopener">Open the show-and-tell deck</a>
       </div>
-    </div>
-    <div class="datapanel" id="step2">
-      <h2>Step 2: Copy everything for AI</h2>
-      <div id="locked"><p>Lock in your sentence first. Then this button copies the starter prompt, your sentence, and the whole project (board, Slack, and meeting notes) in one paste</p></div>
-      <div id="unlocked" hidden>
-        <p>Paste this into Claude, ChatGPT, Gemini, or any AI tool. The AI looks for the problems first, then compares its answer to yours. The data is fake, so paste away</p>
-        <div class="btns"><button class="btn primary" id="aibtn">Copy for AI</button></div>
-        <details class="more">
-          <summary>Other formats</summary>
-          <div class="fmt" role="group" aria-label="Format">
-            <button class="btn" data-fmt="md" aria-pressed="true">Text</button>
-            <button class="btn" data-fmt="csv" aria-pressed="false">Spreadsheet (CSV)</button>
-            <button class="btn" data-fmt="json" aria-pressed="false">JSON</button>
-          </div>
-          <p id="fmtnote" hidden>The spreadsheet has tickets only. Use Text or JSON to include Slack and meeting notes</p>
-          <div class="btns">
-            <button class="btn" id="copybtn">Copy</button>
-            <button class="btn" id="dlbtn">Download file</button>
-          </div>
-          <textarea id="raw" readonly aria-label="Project data"></textarea>
-        </details>
-      </div>
+      <details class="more">
+        <summary>Just the data, in other formats</summary>
+        <div class="fmt" role="group" aria-label="Format">
+          <button class="btn" data-fmt="md" aria-pressed="true">Text</button>
+          <button class="btn" data-fmt="csv" aria-pressed="false">Spreadsheet (CSV)</button>
+          <button class="btn" data-fmt="json" aria-pressed="false">JSON</button>
+        </div>
+        <p id="fmtnote" hidden>The spreadsheet has tickets only. Use Text or JSON to include Slack and meeting notes</p>
+        <div class="btns">
+          <button class="btn" id="copybtn">Copy</button>
+          <button class="btn" id="dlbtn">Download file</button>
+        </div>
+        <textarea id="raw" readonly aria-label="Project data"></textarea>
+      </details>
     </div>
   </section>
 </main>
+</div>
 </div>
 
 <div class="msg" id="msg" hidden></div>

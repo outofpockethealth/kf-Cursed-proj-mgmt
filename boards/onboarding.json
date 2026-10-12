@@ -1,0 +1,473 @@
+{
+  "project": {
+    "name": "OOP Navigators day one",
+    "brief": "Out of Pocket is expanding, fast, and is now running more big projects at once than any newsletter company should. This is one of them. OOP is launching OOP Navigators, a phone team that helps health plan members understand their insurance. 40 navigators start on the same day, Monday, Nov 2. Every one of them has already quit their old job, so the date is not moving. The project tracker says things are mostly on track. Your job is to figure out what's really going on before day one",
+    "company": "Out of Pocket Health, a healthcare newsletter and events company that is now expanding into a lot of things at once",
+    "product": "OOP Navigators, a new 40-person phone team that helps health plan members understand their insurance",
+    "today": "2026-10-17",
+    "deadline": "2026-11-02",
+    "deadlineLabel": "Day one",
+    "context": "All 40 new hires have already quit their old jobs, so the date is not moving"
+  },
+  "team": {
+    "Renee": {
+      "role": "VP, OOP Navigators. Hired all 40 people in three weeks"
+    },
+    "Sol": {
+      "role": "Recruiting"
+    },
+    "Kendra": {
+      "role": "HR"
+    },
+    "Marty": {
+      "role": "IT. The only person who sets up laptops"
+    },
+    "Joelle": {
+      "role": "Facilities"
+    },
+    "Ari": {
+      "role": "Training lead"
+    },
+    "Cy": {
+      "role": "Payroll and benefits"
+    },
+    "Priscilla": {
+      "role": "Phone system contractor"
+    },
+    "Hollis": {
+      "role": "Compliance"
+    },
+    "Ben": {
+      "role": "Used to run onboarding. Left the company in July"
+    },
+    "Everyone": {
+      "role": ""
+    }
+  },
+  "tickets": [
+    {
+      "id": "N-6",
+      "title": "Create logins for every system",
+      "owner": "Marty",
+      "status": "To Do",
+      "start": "2026-10-26",
+      "due": "2026-10-30",
+      "updated": "1 week ago",
+      "desc": "Create logins for every new hire in all 7 systems they need: email, Slack, the phone system, the CRM, the benefits lookup tool, training, and payroll. Done when all 40 can log into all 7 on day one",
+      "comments": [
+        {
+          "author": "Marty",
+          "time": "1 week ago",
+          "text": "7 systems x 40 people = 280 accounts. Will batch it the week before"
+        }
+      ]
+    },
+    {
+      "id": "N-7",
+      "title": "Shared inbox and Slack channels for the team",
+      "owner": "Marty",
+      "status": "To Do",
+      "start": "2026-10-26",
+      "due": "2026-10-30",
+      "updated": "3 weeks ago",
+      "desc": "Inbox",
+      "comments": []
+    },
+    {
+      "id": "N-14",
+      "title": "Assign a manager to each new hire",
+      "owner": "Renee",
+      "status": "To Do",
+      "start": "2026-09-28",
+      "due": "2026-10-09",
+      "updated": "5 weeks ago",
+      "desc": "TBD, will fill in after hiring",
+      "comments": []
+    },
+    {
+      "id": "N-15",
+      "title": "Parking and building badges",
+      "owner": "",
+      "status": "To Do",
+      "start": "2026-10-26",
+      "due": "2026-10-30",
+      "updated": "4 weeks ago",
+      "desc": "Parking and building badges",
+      "comments": []
+    },
+    {
+      "id": "N-1",
+      "title": "Onboard the new team",
+      "owner": "Everyone",
+      "status": "In Progress",
+      "start": "2026-08-31",
+      "due": "2026-11-02",
+      "updated": "Yesterday",
+      "desc": "Get the new team ready",
+      "comments": [
+        {
+          "author": "Renee",
+          "time": "4 weeks ago",
+          "text": "40 for 40!! Best hiring sprint in OOP history 🎉"
+        },
+        {
+          "author": "Sol",
+          "time": "3 weeks ago",
+          "text": "Do they wear headsets all day or just on calls?"
+        },
+        {
+          "author": "Joelle",
+          "time": "3 weeks ago",
+          "text": "Do they need desks or are some remote?"
+        },
+        {
+          "author": "Renee",
+          "time": "3 weeks ago",
+          "text": "In person. Energy matters"
+        },
+        {
+          "author": "Kendra",
+          "time": "2 weeks ago",
+          "text": "Who is each person's manager? Asking for the offer letters"
+        },
+        {
+          "author": "Ari",
+          "time": "6 days ago",
+          "text": "Is there a version of the org chart that exists?"
+        },
+        {
+          "author": "Renee",
+          "time": "Yesterday",
+          "text": "Can we get matching hoodies for day one"
+        }
+      ],
+      "commentCount": 44
+    },
+    {
+      "id": "N-5",
+      "title": "Order and set up 40 laptops",
+      "owner": "Marty",
+      "status": "In Progress",
+      "start": "2026-10-12",
+      "due": "2026-10-30",
+      "updated": "1 week ago",
+      "desc": "Order, set up, and test a laptop for each new hire. Done when every laptop is on a desk, logged in, and can take a call",
+      "comments": [
+        {
+          "author": "Marty",
+          "time": "1 week ago",
+          "text": "Ordered. Arriving Oct 30. Setup is about 2 hours each"
+        }
+      ]
+    },
+    {
+      "id": "N-8",
+      "title": "Set up the phone system for the new team",
+      "owner": "Priscilla",
+      "status": "In Progress",
+      "note": "On track",
+      "start": "2026-09-21",
+      "due": "2026-10-30",
+      "updated": "Today",
+      "desc": "Get the new team taking calls from health plan members on day one. Done when all 40 navigators can answer a call, see who's calling, and every call is recorded",
+      "comments": [
+        {
+          "author": "Priscilla",
+          "time": "2 weeks ago",
+          "text": "On track"
+        },
+        {
+          "author": "Priscilla",
+          "time": "Today",
+          "text": "Softphone licenses provisioned for 25 of 40 agents (seat cap on current tier). ACD queues configured; IVR still routing to legacy queue pending cutover. Call recording disabled pending storage config. On track for day one"
+        }
+      ]
+    },
+    {
+      "id": "N-10",
+      "title": "Navigator culture and values",
+      "owner": "Renee",
+      "status": "In Progress",
+      "start": "2026-09-07",
+      "due": "2026-11-02",
+      "updated": "2 weeks ago",
+      "desc": "Build a culture of radical ownership and member obsession from day one. Our nine values should feel authentic, aspirational, and actionable, and show up in every call, every huddle, and every Slack emoji. Want this to be a living framework that grows with the team rather than a poster. Will co-create with the first cohort once they're onboarded. More to come",
+      "comments": [
+        {
+          "author": "Ari",
+          "time": "2 weeks ago",
+          "text": "Do I need to teach these in training?"
+        }
+      ]
+    },
+    {
+      "id": "N-11",
+      "title": "Update the employee handbook",
+      "owner": "Ben",
+      "status": "In Progress",
+      "start": "2026-06-01",
+      "due": "2026-07-10",
+      "updated": "4 months ago",
+      "desc": "Update the handbook every new hire gets on day one: benefits, time off, and phone etiquette",
+      "comments": [
+        {
+          "author": "Ben",
+          "time": "4 months ago",
+          "text": "Will update the benefits section after open enrollment"
+        }
+      ]
+    },
+    {
+      "id": "N-13",
+      "title": "Two-week training curriculum",
+      "owner": "Ari",
+      "status": "In Progress",
+      "start": "2026-09-14",
+      "due": "2026-10-30",
+      "updated": "3 days ago",
+      "desc": "Two weeks of training: insurance basics, the phone system, and how to explain a deductible without making anyone cry. Done when a new navigator can handle a real call with a supervisor listening",
+      "comments": [
+        {
+          "author": "Ari",
+          "time": "3 days ago",
+          "text": "Week 1 is done. Week 2 is all hands-on phone practice, so it depends on the phone system"
+        }
+      ]
+    },
+    {
+      "id": "N-18",
+      "title": "First day instructions email",
+      "owner": "Kendra",
+      "status": "In Progress",
+      "start": "2026-10-12",
+      "due": "2026-10-26",
+      "updated": "2 days ago",
+      "desc": "Email to all 40 new hires with where to go, when to arrive, and what to bring on day one",
+      "comments": [
+        {
+          "author": "Kendra",
+          "time": "2 days ago",
+          "text": "Drafting now. Should be quick"
+        }
+      ]
+    },
+    {
+      "id": "N-2",
+      "title": "Training schedule",
+      "owner": "Ari",
+      "status": "Blocked",
+      "start": "2026-09-21",
+      "due": "2026-10-09",
+      "waiting": [
+        "N-3"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Split the 40 hires into training groups and lock the room and times for both weeks. Groups need to sit together, so seating comes first",
+      "comments": [
+        {
+          "author": "Ari",
+          "time": "2 weeks ago",
+          "text": "Can't set training groups until I know who sits where. @Joelle"
+        }
+      ]
+    },
+    {
+      "id": "N-3",
+      "title": "Seating plan",
+      "owner": "Joelle",
+      "status": "Blocked",
+      "start": "2026-09-21",
+      "due": "2026-10-16",
+      "waiting": [
+        "N-4"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Assign a desk to every new hire. The team sits by pod, so pods have to be decided first",
+      "comments": [
+        {
+          "author": "Joelle",
+          "time": "2 weeks ago",
+          "text": "Can't seat anyone until Renee picks the pods"
+        }
+      ]
+    },
+    {
+      "id": "N-4",
+      "title": "Pod assignments",
+      "owner": "Renee",
+      "status": "Blocked",
+      "start": "2026-09-21",
+      "due": "2026-10-02",
+      "waiting": [
+        "N-2"
+      ],
+      "updated": "3 weeks ago",
+      "desc": "Split the 40 navigators into pods of 8, each with a lead",
+      "comments": [
+        {
+          "author": "Renee",
+          "time": "3 weeks ago",
+          "text": "Want to build pods around training groups so people bond. Waiting on Ari's schedule"
+        }
+      ]
+    },
+    {
+      "id": "N-9",
+      "title": "Benefits enrollment for new hires",
+      "owner": "Cy",
+      "status": "In Review",
+      "note": "90% done",
+      "start": "2026-09-28",
+      "due": "2026-10-23",
+      "updated": "2 weeks ago",
+      "desc": "",
+      "comments": [
+        {
+          "author": "Cy",
+          "time": "2 weeks ago",
+          "text": "Almost there. One small thing about the start date for coverage"
+        }
+      ]
+    },
+    {
+      "id": "N-12",
+      "title": "Welcome email to new hires",
+      "owner": "Sol",
+      "status": "In Review",
+      "note": "90% done",
+      "start": "2026-10-05",
+      "due": "2026-10-23",
+      "waitingText": "Renee",
+      "updated": "4 days ago",
+      "desc": "Warm welcome email from the team before day one. Current draft says: \"Your laptop will be waiting on your desk\"",
+      "comments": [
+        {
+          "author": "Sol",
+          "time": "4 days ago",
+          "text": "Ready to send, waiting on Renee's ok"
+        }
+      ]
+    },
+    {
+      "id": "N-16",
+      "title": "Book the training room",
+      "owner": "Joelle",
+      "status": "Done",
+      "start": "2026-09-28",
+      "due": "2026-10-02",
+      "updated": "2 weeks ago",
+      "desc": "Book the big training room for both training weeks, starting day one",
+      "comments": [
+        {
+          "author": "Joelle",
+          "time": "2 weeks ago",
+          "text": "Booked for the 2nd through the 13th! Marking done"
+        }
+      ]
+    },
+    {
+      "id": "N-17",
+      "title": "Hire 40 navigators",
+      "owner": "Sol",
+      "status": "Done",
+      "start": "2026-08-31",
+      "due": "2026-10-02",
+      "updated": "2 weeks ago",
+      "desc": "Hire 40 navigators who start on the same day",
+      "comments": [
+        {
+          "author": "Sol",
+          "time": "2 weeks ago",
+          "text": "All 40 signed! Start date Nov 2 🎉"
+        }
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "author": "Renee",
+      "time": "Thu 9:30 AM",
+      "text": "16 days until 40 navigators walk in the door 🎉 Sol says everyone is excited"
+    },
+    {
+      "author": "Sol",
+      "time": "Thu 9:41 AM",
+      "text": "Everyone is very excited. Three of them asked where to park. I said I'd find out"
+    },
+    {
+      "author": "Marty",
+      "time": "Thu 11:02 AM",
+      "text": "Quick math for the group: 40 laptops arrive Oct 30, each takes about 2 hours to set up, plus 280 logins. That's the whole weekend before day one and then some. I'm also still IT for everyone else"
+    },
+    {
+      "author": "Priscilla",
+      "time": "Thu 1:15 PM",
+      "text": "Phone update: the current plan only covers 25 seats, so 15 people won't be able to take calls. Calls also still go to the old team's queue. On track"
+    },
+    {
+      "author": "Hollis",
+      "time": "Thu 1:20 PM",
+      "text": "Are calls being recorded? We're required to record them"
+    },
+    {
+      "author": "Priscilla",
+      "time": "Thu 1:24 PM",
+      "text": "Not yet. Storage thing. Still on track"
+    },
+    {
+      "author": "Cy",
+      "time": "Thu 3:05 PM",
+      "text": "Benefits question: new hires get coverage on the first of the month after 30 days. For a Nov 2 start, that's Jan 1. So our health insurance navigators won't have health insurance for two months"
+    },
+    {
+      "author": "Kendra",
+      "time": "Thu 3:09 PM",
+      "text": "Can we not put that in the welcome email"
+    },
+    {
+      "author": "Sol",
+      "time": "Fri 9:00 AM",
+      "text": "Welcome email is ready! It says their laptop will be waiting on their desk"
+    },
+    {
+      "author": "Kendra",
+      "time": "Fri 9:04 AM",
+      "text": "I'm also writing a first day instructions email. Are those the same email?"
+    },
+    {
+      "author": "Joelle",
+      "time": "Fri 10:12 AM",
+      "text": "Seating update: I can't seat anyone until Renee picks pods. Renee says pods depend on training groups. Ari says training groups depend on seating. I'm going to lunch"
+    },
+    {
+      "author": "Ari",
+      "time": "Fri 10:30 AM",
+      "text": "Small thing, has anyone opened the handbook lately? It still lists the health plan we dropped last year"
+    }
+  ],
+  "notes": {
+    "title": "Navigators day one readiness",
+    "date": "2026-10-15",
+    "attendees": [
+      "Renee",
+      "Sol",
+      "Kendra",
+      "Ari",
+      "Joelle",
+      "Cy"
+    ],
+    "bullets": [
+      "Renee opened by reading the team's new values out loud. There are nine",
+      "Training groups, seating, and pods: Ari is waiting on Joelle, Joelle is waiting on Renee, Renee is waiting on Ari. Renee asked everyone to \"stay flexible\"",
+      "Marty is setting up 40 laptops and 280 logins the weekend before day one. Marty wasn't here because he was fixing someone's printer",
+      "Phones: Priscilla sent a note saying on track. Ari asked what \"seat cap\" means. Nobody knew. Moved on",
+      "Benefits: Cy says 90% done. The last part is that coverage doesn't start until Jan 1",
+      "Managers: Kendra asked who each new hire reports to. The ticket says TBD after hiring. Hiring finished 2 weeks ago",
+      "Training room: marked done. Ari checked the booking during the meeting. It's for Dec 2 through Dec 13",
+      "Two emails are going to the same 40 people, Sol's welcome email and Kendra's first day email. Agreed to keep them \"consistent\"",
+      "Parking and badges: nobody owns it. Three hires have asked",
+      "Renee mentioned that Lakeshore Health Plan's legal team is \"still reviewing\" the contract this team was hired to staff, \"but that's a formality.\" Moved on to hoodies",
+      "Day one stays Nov 2. Everyone has already quit their old jobs"
+    ]
+  }
+}

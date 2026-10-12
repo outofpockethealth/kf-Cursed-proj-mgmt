@@ -1,0 +1,471 @@
+{
+  "project": {
+    "name": "Fern rollout",
+    "brief": "Out of Pocket is expanding, fast, and is now running more big projects at once than any newsletter company should. This is one of them. OOP now has about 350 employees across its new divisions, and in 2 weeks every one of them gets Fern, an AI assistant from a company called Fernwood Labs. Fern writes, takes meeting notes, and searches company files. OOP signed a 3-year contract and billing starts Nov 2 whether or not anyone logs in, so the date is not moving. The project tracker says things are mostly on track. Your job is to figure out what's really going on before go-live day",
+    "company": "Out of Pocket Health, a healthcare newsletter and events company that is now expanding into a lot of things at once",
+    "product": "Fern, an AI assistant from Fernwood Labs, rolling out to all 350 OOP employees",
+    "today": "2026-10-17",
+    "deadline": "2026-11-02",
+    "deadlineLabel": "Go-live day",
+    "context": "OOP signed a 3-year contract for 350 seats and billing starts Nov 2 whether or not anyone logs in, so the date is not moving"
+  },
+  "team": {
+    "Harper": {
+      "role": "Chief AI Officer. Title created in August. Signed the Fern contract"
+    },
+    "Leon": {
+      "role": "Security. Team of one"
+    },
+    "Gloria": {
+      "role": "HR"
+    },
+    "Nadia": {
+      "role": "Legal"
+    },
+    "Quinn": {
+      "role": "Engineer connecting Fern to OOP's systems"
+    },
+    "Felix": {
+      "role": "Training"
+    },
+    "Theo": {
+      "role": "Internal comms"
+    },
+    "Devi": {
+      "role": "Finance"
+    },
+    "Carla": {
+      "role": "Runs the billing team at OOP Revenue, OOP's medical billing business"
+    },
+    "Bianca": {
+      "role": "Ran the AI pilot last spring. Left the company in June"
+    },
+    "Everyone": {
+      "role": ""
+    }
+  },
+  "tickets": [
+    {
+      "id": "AI-6",
+      "title": "Approve each team's Fern connections",
+      "owner": "Leon",
+      "status": "To Do",
+      "start": "2026-10-05",
+      "due": "2026-10-28",
+      "waiting": [
+        "AI-3"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Every team has asked to connect Fern to something: email, calendar, drive, Slack, the CRM. Security has to approve each one. 14 requests in the queue",
+      "comments": [
+        {
+          "author": "Theo",
+          "time": "2 weeks ago",
+          "text": "Comms would love the Slack connection 🙏"
+        },
+        {
+          "author": "Leon",
+          "time": "2 weeks ago",
+          "text": "Added to the queue. You're #14"
+        }
+      ]
+    },
+    {
+      "id": "AI-14",
+      "title": "ROI tracking",
+      "owner": "Devi",
+      "status": "To Do",
+      "start": "2026-08-10",
+      "due": "2026-09-16",
+      "updated": "10 weeks ago",
+      "desc": "TBD, will fill in after the contract is signed",
+      "comments": []
+    },
+    {
+      "id": "AI-15",
+      "title": "Go-live day support plan",
+      "owner": "",
+      "status": "To Do",
+      "start": "2026-10-26",
+      "due": "2026-10-30",
+      "updated": "3 weeks ago",
+      "desc": "Go-live day support plan",
+      "comments": []
+    },
+    {
+      "id": "AI-1",
+      "title": "Become an AI-first company",
+      "owner": "Everyone",
+      "status": "In Progress",
+      "start": "2026-08-10",
+      "due": "2026-11-02",
+      "updated": "Yesterday",
+      "desc": "Make OOP AI-first",
+      "comments": [
+        {
+          "author": "Harper",
+          "time": "10 weeks ago",
+          "text": "This is the most important thing we'll do this year 🌿"
+        },
+        {
+          "author": "Theo",
+          "time": "6 weeks ago",
+          "text": "Should we make a launch video?"
+        },
+        {
+          "author": "Felix",
+          "time": "2 weeks ago",
+          "text": "Does anyone know which version of Fern people are getting?"
+        },
+        {
+          "author": "Quinn",
+          "time": "2 weeks ago",
+          "text": "Whatever version the contract says"
+        },
+        {
+          "author": "Devi",
+          "time": "2 weeks ago",
+          "text": "The contract says \"current version\""
+        },
+        {
+          "author": "Gloria",
+          "time": "1 week ago",
+          "text": "Reminder that the usage policy isn't out yet, so please stop telling people they can use it for everything"
+        },
+        {
+          "author": "Harper",
+          "time": "Yesterday",
+          "text": "Can we start calling it Fern-first instead of AI-first"
+        }
+      ],
+      "commentCount": 61
+    },
+    {
+      "id": "AI-5",
+      "title": "Set up single sign-on for Fern",
+      "owner": "Leon",
+      "status": "In Progress",
+      "note": "90% done",
+      "start": "2026-09-21",
+      "due": "2026-10-23",
+      "updated": "1 week ago",
+      "desc": "Let everyone log into Fern with their normal work login. Done when all 350 employees can sign in on go-live day",
+      "comments": [
+        {
+          "author": "Leon",
+          "time": "1 week ago",
+          "text": "Basically done. Just the OOP Revenue folks left. They're on a different login system since the acquisition"
+        }
+      ]
+    },
+    {
+      "id": "AI-7",
+      "title": "Connect Fern to the shared drive and email",
+      "owner": "Quinn",
+      "status": "In Progress",
+      "note": "On track",
+      "start": "2026-09-21",
+      "due": "2026-10-30",
+      "updated": "Today",
+      "desc": "Connect Fern to the shared drive and email so it can answer questions using company documents. Done when people can ask Fern about our files and get the right answer",
+      "comments": [
+        {
+          "author": "Quinn",
+          "time": "2 weeks ago",
+          "text": "On track"
+        },
+        {
+          "author": "Quinn",
+          "time": "Today",
+          "text": "Drive connector bootstrapped via a service account with org-wide read scope to seed the retrieval index. Per-user ACL inheritance deferred to phase 2. Index at 1.2M docs incl. /HR and /Finance shares. Mailbox ingestion next. On track for go-live"
+        }
+      ]
+    },
+    {
+      "id": "AI-8",
+      "title": "Summarize what we learned from the pilot",
+      "owner": "Bianca",
+      "status": "In Progress",
+      "start": "2026-05-04",
+      "due": "2026-05-29",
+      "updated": "5 months ago",
+      "desc": "Write up what the 20 pilot users learned: what worked, what didn't, and anything we should fix before rolling out to everyone",
+      "comments": [
+        {
+          "author": "Bianca",
+          "time": "5 months ago",
+          "text": "Draft coming next week! Some interesting findings in here 👀"
+        }
+      ]
+    },
+    {
+      "id": "AI-10",
+      "title": "Train all 350 employees",
+      "owner": "Felix",
+      "status": "In Progress",
+      "note": "90% done",
+      "start": "2026-09-28",
+      "due": "2026-10-30",
+      "updated": "5 days ago",
+      "desc": "Get everyone ready to use Fern on day one: 12 short videos plus a live Q&A. Done when people know how to use it and what not to paste into it",
+      "comments": [
+        {
+          "author": "Felix",
+          "time": "5 days ago",
+          "text": "All 12 videos recorded during the pilot. Just need to upload them"
+        }
+      ]
+    },
+    {
+      "id": "AI-12",
+      "title": "AI transformation vision",
+      "owner": "Harper",
+      "status": "In Progress",
+      "start": "2026-08-17",
+      "due": "2026-11-02",
+      "updated": "2 weeks ago",
+      "desc": "Operationalize an AI-native culture by empowering every team to reimagine workflows through an agentic lens. Phase 1 is adoption, Phase 2 is transformation, Phase 3 is reinvention. Success looks like a flywheel where productivity gains fund further innovation. Aligning with leadership on the narrative and will cascade once we have a crisp articulation of the why. Watch this space",
+      "comments": [
+        {
+          "author": "Felix",
+          "time": "2 weeks ago",
+          "text": "Is this the same ticket as AI-1?"
+        }
+      ]
+    },
+    {
+      "id": "AI-13",
+      "title": "Fern acceptable use guidelines",
+      "owner": "Nadia",
+      "status": "In Progress",
+      "start": "2026-10-05",
+      "due": "2026-10-23",
+      "updated": "1 week ago",
+      "desc": "Guidelines for using Fern responsibly: what employees can share with it and how to handle its mistakes",
+      "comments": [
+        {
+          "author": "Nadia",
+          "time": "1 week ago",
+          "text": "Drafting these since nobody else was. Should be ready soon"
+        }
+      ]
+    },
+    {
+      "id": "AI-2",
+      "title": "Write the AI usage policy",
+      "owner": "Gloria",
+      "status": "Blocked",
+      "start": "2026-08-31",
+      "due": "2026-10-02",
+      "waiting": [
+        "AI-3"
+      ],
+      "updated": "3 weeks ago",
+      "desc": "Plain-language rules for using Fern at work: what you can paste in, what you can't, and what to do when it's wrong. Need to know what data Fern can see before we can write the rules",
+      "comments": [
+        {
+          "author": "Gloria",
+          "time": "3 weeks ago",
+          "text": "Waiting on Leon to tell me what Fern can see before I write rules about it"
+        }
+      ]
+    },
+    {
+      "id": "AI-3",
+      "title": "Security review: what Fern is allowed to see",
+      "owner": "Leon",
+      "status": "Blocked",
+      "start": "2026-08-31",
+      "due": "2026-10-09",
+      "waiting": [
+        "AI-4"
+      ],
+      "updated": "3 weeks ago",
+      "desc": "Review",
+      "comments": [
+        {
+          "author": "Leon",
+          "time": "3 weeks ago",
+          "text": "Can't scope the review until Harper decides which teams get which features"
+        }
+      ]
+    },
+    {
+      "id": "AI-4",
+      "title": "Decide which teams get which features",
+      "owner": "Harper",
+      "status": "Blocked",
+      "start": "2026-09-07",
+      "due": "2026-09-25",
+      "waiting": [
+        "AI-2"
+      ],
+      "updated": "4 weeks ago",
+      "desc": "Decide which Fern features each team gets at go-live: writing help, meeting notes, and search across company files",
+      "comments": [
+        {
+          "author": "Harper",
+          "time": "4 weeks ago",
+          "text": "Want to see the usage policy first. Don't want to give teams features we'll have to take back"
+        }
+      ]
+    },
+    {
+      "id": "AI-11",
+      "title": "Launch announcement to the company",
+      "owner": "Theo",
+      "status": "In Review",
+      "start": "2026-10-12",
+      "due": "2026-10-30",
+      "waitingText": "Harper",
+      "updated": "4 days ago",
+      "desc": "Company-wide email and Slack post introducing Fern on go-live day. Headline: \"Meet Fern, your new coworker who has read everything\"",
+      "comments": [
+        {
+          "author": "Theo",
+          "time": "4 days ago",
+          "text": "Ready to go, just waiting on Harper's ok on the headline"
+        }
+      ]
+    },
+    {
+      "id": "AI-9",
+      "title": "Vendor security questionnaire",
+      "owner": "Leon",
+      "status": "Done",
+      "start": "2026-08-24",
+      "due": "2026-09-11",
+      "updated": "6 weeks ago",
+      "desc": "",
+      "comments": [
+        {
+          "author": "Leon",
+          "time": "6 weeks ago",
+          "text": "Fernwood sent it back. 212 questions. Marking done, will read when things calm down"
+        }
+      ]
+    },
+    {
+      "id": "AI-16",
+      "title": "Sign the contract with Fernwood Labs",
+      "owner": "Devi",
+      "status": "Done",
+      "start": "2026-08-03",
+      "due": "2026-08-10",
+      "updated": "10 weeks ago",
+      "desc": "Sign the 3-year contract with Fernwood Labs for 350 seats",
+      "comments": [
+        {
+          "author": "Devi",
+          "time": "10 weeks ago",
+          "text": "Signed. 350 seats for 3 years. Billing starts Nov 2 whether or not anyone logs in"
+        }
+      ]
+    },
+    {
+      "id": "AI-17",
+      "title": "Name the rollout",
+      "owner": "Harper",
+      "status": "Done",
+      "start": "2026-08-10",
+      "due": "2026-08-14",
+      "updated": "10 weeks ago",
+      "desc": "Pick a friendly name for the rollout",
+      "comments": [
+        {
+          "author": "Harper",
+          "time": "10 weeks ago",
+          "text": "Fern! Because it grows on you 🌿"
+        }
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "author": "Harper",
+      "time": "Thu 10:02 AM",
+      "text": "Two weeks until every person at OOP has an AI coworker. Historic 🌿"
+    },
+    {
+      "author": "Quinn",
+      "time": "Thu 10:20 AM",
+      "text": "Good news, Fern can already search the whole shared drive. I gave it access to everything so it isn't missing context"
+    },
+    {
+      "author": "Leon",
+      "time": "Thu 10:24 AM",
+      "text": "Define everything"
+    },
+    {
+      "author": "Quinn",
+      "time": "Thu 10:25 AM",
+      "text": "Everything. If it's in the drive, Fern can find it and use it to answer anyone's question. HR folder, finance folder, all of it. Permissions come in phase 2"
+    },
+    {
+      "author": "Devi",
+      "time": "Thu 10:31 AM",
+      "text": "So if someone asks Fern what everyone gets paid"
+    },
+    {
+      "author": "Quinn",
+      "time": "Thu 10:32 AM",
+      "text": "It would be very helpful"
+    },
+    {
+      "author": "Theo",
+      "time": "Thu 1:15 PM",
+      "text": "Watched training video 3 and tried to follow along. Nothing is where the video says it is. Also video 4 shows a feature I can't find"
+    },
+    {
+      "author": "Felix",
+      "time": "Thu 1:22 PM",
+      "text": "They were recorded during the pilot. Did the buttons move?"
+    },
+    {
+      "author": "Nadia",
+      "time": "Fri 9:00 AM",
+      "text": "Finished the Fern acceptable use guidelines. Short version: double check anything it writes before you send it"
+    },
+    {
+      "author": "Gloria",
+      "time": "Fri 9:04 AM",
+      "text": "I'm also writing the usage policy. Mine says it's fine for most things. Are we doing two?"
+    },
+    {
+      "author": "Carla",
+      "time": "Fri 9:30 AM",
+      "text": "Hi! My billing team never stopped using Fern after the pilot. They paste denied claims in and it writes the appeal letters. Saves us hours every day. Please don't take it away 🙏"
+    },
+    {
+      "author": "Harper",
+      "time": "Fri 9:41 AM",
+      "text": "This is exactly the kind of grassroots adoption we want to see 🙌"
+    }
+  ],
+  "notes": {
+    "title": "Fern go-live readiness",
+    "date": "2026-10-15",
+    "attendees": [
+      "Harper",
+      "Leon",
+      "Quinn",
+      "Felix",
+      "Theo",
+      "Devi",
+      "Gloria"
+    ],
+    "bullets": [
+      "Harper opened with a 10-minute demo where Fern wrote a haiku about synergy. Applause",
+      "Policy, security review, and feature decisions: Gloria is waiting on Leon, Leon is waiting on Harper, Harper is waiting on Gloria. Harper suggested asking Fern to sort it out",
+      "Leon stayed for 10 minutes, then left to approve something else. He has 14 connection requests in his queue and a 212-question vendor questionnaire he hasn't read",
+      "Logins: 90% done. The last 10% is the 120 people at OOP Revenue, who are on a different login system since the acquisition. That's about a third of the company",
+      "Quinn says the shared drive connection is on track. No follow-up questions",
+      "Training: Felix says 90% done, the videos just need uploading. They were recorded during the pilot",
+      "Two policies are being written, Gloria's and Nadia's. Neither knew about the other until today. Agreed to merge them at some point",
+      "ROI: Devi asked how we'll know if this worked. Harper said \"vibes, for now.\" The ticket says TBD until the contract is signed. It was signed 10 weeks ago",
+      "Pilot learnings: Felix asked where the write-up is. It's assigned to Bianca, who left in June",
+      "Go-live support: nobody owns who answers questions on day one. Theo suggested people ask Fern",
+      "Go-live stays Nov 2. Billing starts that day either way"
+    ]
+  }
+}

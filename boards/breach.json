@@ -1,0 +1,471 @@
+{
+  "project": {
+    "name": "Larkfield breach response",
+    "brief": "This one isn't an OOP project. It's the kind of thing OOP writes newsletters about. On Sept 25, Larkfield Benefits, a dental insurance company with 400,000 members, found out that one of its vendors had left a server open to the internet with member names, addresses, and member ID numbers on it. Federal law gives Larkfield 60 days from discovery to notify every affected member and the federal government, which makes the deadline Nov 24, and it is not moving. The project tracker says things are mostly on track. Your job is to figure out what's really going on before the deadline",
+    "company": "Larkfield Benefits, a dental insurance company with 400,000 members",
+    "product": "The response to a data breach at one of Larkfield's vendors: find out what was exposed, notify members and regulators, and handle the fallout",
+    "today": "2026-10-17",
+    "deadline": "2026-11-24",
+    "deadlineLabel": "Notification deadline",
+    "context": "Federal law requires notice within 60 days of discovering the breach on Sept 25, so the date is not moving"
+  },
+  "team": {
+    "Dale": {
+      "role": "CEO. Takes privacy very seriously, and says so"
+    },
+    "Ingrid": {
+      "role": "Privacy officer. The only person who knows the notification rules"
+    },
+    "Victor": {
+      "role": "Security lead"
+    },
+    "Rhys": {
+      "role": "Communications"
+    },
+    "Monique": {
+      "role": "Vendor management"
+    },
+    "Abe": {
+      "role": "General counsel"
+    },
+    "Carmen": {
+      "role": "Finance"
+    },
+    "Penny": {
+      "role": "Member services. Runs the 12-person call center"
+    },
+    "Stuart": {
+      "role": "Former IT director. Left the company in August"
+    },
+    "Everyone": {
+      "role": ""
+    }
+  },
+  "tickets": [
+    {
+      "id": "B-6",
+      "title": "Notify state attorneys general",
+      "owner": "Ingrid",
+      "status": "To Do",
+      "start": "2026-11-09",
+      "due": "2026-11-20",
+      "updated": "3 weeks ago",
+      "desc": "Send a breach notice to the attorney general in every state where affected members live (31 states). Use the same 60-day federal deadline for every state to keep it simple",
+      "comments": [
+        {
+          "author": "Ingrid",
+          "time": "3 weeks ago",
+          "text": "Will batch these with the federal notice"
+        }
+      ]
+    },
+    {
+      "id": "B-7",
+      "title": "Notify the federal regulator",
+      "owner": "Ingrid",
+      "status": "To Do",
+      "start": "2026-11-09",
+      "due": "2026-11-20",
+      "updated": "3 weeks ago",
+      "desc": "Federal notice",
+      "comments": []
+    },
+    {
+      "id": "B-14",
+      "title": "Print and mail 400,000 letters",
+      "owner": "Carmen",
+      "status": "To Do",
+      "start": "2026-10-05",
+      "due": "2026-10-09",
+      "updated": "3 weeks ago",
+      "desc": "TBD, will fill in after we know the scope",
+      "comments": []
+    },
+    {
+      "id": "B-15",
+      "title": "Extra phone staff for when the letters land",
+      "owner": "",
+      "status": "To Do",
+      "start": "2026-11-09",
+      "due": "2026-11-20",
+      "updated": "3 weeks ago",
+      "desc": "Extra phone staff for when the letters land",
+      "comments": []
+    },
+    {
+      "id": "B-1",
+      "title": "Handle the breach",
+      "owner": "Everyone",
+      "status": "In Progress",
+      "start": "2026-09-25",
+      "due": "2026-11-24",
+      "updated": "Yesterday",
+      "desc": "Handle the breach",
+      "comments": [
+        {
+          "author": "Dale",
+          "time": "3 weeks ago",
+          "text": "Team, we take privacy very seriously 💪"
+        },
+        {
+          "author": "Rhys",
+          "time": "3 weeks ago",
+          "text": "Can we say \"incident\" instead of \"breach\" in public?"
+        },
+        {
+          "author": "Abe",
+          "time": "3 weeks ago",
+          "text": "Legally it's a breach"
+        },
+        {
+          "author": "Penny",
+          "time": "2 weeks ago",
+          "text": "What do my agents say if someone calls today?"
+        },
+        {
+          "author": "Victor",
+          "time": "2 weeks ago",
+          "text": "\"We take privacy very seriously\""
+        },
+        {
+          "author": "Carmen",
+          "time": "1 week ago",
+          "text": "Is there a budget code for this?"
+        },
+        {
+          "author": "Dale",
+          "time": "Yesterday",
+          "text": "Can we get the letters on nicer paper"
+        }
+      ],
+      "commentCount": 63
+    },
+    {
+      "id": "B-5",
+      "title": "Breach risk assessment",
+      "owner": "Ingrid",
+      "status": "In Progress",
+      "start": "2026-09-28",
+      "due": "2026-10-30",
+      "updated": "5 days ago",
+      "desc": "Document what was exposed, who could have seen it, and how much risk that creates for members, as the law requires. Done when it's signed by Ingrid and outside counsel",
+      "comments": [
+        {
+          "author": "Ingrid",
+          "time": "5 days ago",
+          "text": "Drafting. Waiting on final scope from forensics"
+        }
+      ]
+    },
+    {
+      "id": "B-8",
+      "title": "Forensic investigation",
+      "owner": "Victor",
+      "status": "In Progress",
+      "note": "On track",
+      "start": "2026-09-25",
+      "due": "2026-10-30",
+      "updated": "Today",
+      "desc": "Find out exactly what was exposed, for how long, and whether anyone took it. Done when we have a final, confirmed list of affected members and data types",
+      "comments": [
+        {
+          "author": "Victor",
+          "time": "2 weeks ago",
+          "text": "On track. Exposure window looks like about 3 days"
+        },
+        {
+          "author": "Victor",
+          "time": "Today",
+          "text": "Exposure window confirmed 2026-06-02 to 2026-09-25 (prior estimate 3 days). Bucket contained member PII plus a claims_export table incl. last-4 SSN and bank routing/account for 38k members on direct-deposit reimbursement. Access logs show 14 external IPs, 2 full bulk downloads. Scope revision pending. On track"
+        }
+      ]
+    },
+    {
+      "id": "B-10",
+      "title": "Trust restoration roadmap",
+      "owner": "Dale",
+      "status": "In Progress",
+      "start": "2026-10-05",
+      "due": "2026-11-24",
+      "updated": "2 weeks ago",
+      "desc": "Reaffirm our unwavering commitment to member trust through a holistic, values-led response. The roadmap rests on four pillars: transparency, accountability, empathy, and resilience. Each pillar will cascade into workstreams that demonstrate who we are as a company. Will socialize with the board once the narrative is fully aligned. More to come",
+      "comments": [
+        {
+          "author": "Rhys",
+          "time": "2 weeks ago",
+          "text": "Is any of this going in the member letter?"
+        }
+      ]
+    },
+    {
+      "id": "B-11",
+      "title": "Remove the vendor's access to our systems",
+      "owner": "Stuart",
+      "status": "In Progress",
+      "start": "2026-08-03",
+      "due": "2026-08-21",
+      "updated": "10 weeks ago",
+      "desc": "Shut off every login and connection the vendor has into Larkfield systems once their contract work wraps",
+      "comments": [
+        {
+          "author": "Stuart",
+          "time": "10 weeks ago",
+          "text": "Will do after the migration"
+        }
+      ]
+    },
+    {
+      "id": "B-13",
+      "title": "Press statement",
+      "owner": "Rhys",
+      "status": "In Progress",
+      "start": "2026-10-12",
+      "due": "2026-11-20",
+      "updated": "3 days ago",
+      "desc": "Short public statement for reporters and our website, ready to go out the day member letters land",
+      "comments": [
+        {
+          "author": "Rhys",
+          "time": "3 days ago",
+          "text": "Drafting. Should be quick"
+        }
+      ]
+    },
+    {
+      "id": "B-18",
+      "title": "Statement for reporters",
+      "owner": "Dale",
+      "status": "In Progress",
+      "start": "2026-10-14",
+      "due": "2026-11-20",
+      "updated": "2 days ago",
+      "desc": "What we say to the press",
+      "comments": [
+        {
+          "author": "Dale",
+          "time": "2 days ago",
+          "text": "Writing this one myself. It needs heart"
+        }
+      ]
+    },
+    {
+      "id": "B-2",
+      "title": "Draft the letter to members",
+      "owner": "Rhys",
+      "status": "Blocked",
+      "start": "2026-09-28",
+      "due": "2026-10-16",
+      "waiting": [
+        "B-3"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "The letter every affected member gets: what happened, what was exposed, what we're doing, and what they should do. Can't write it until we know exactly what was exposed",
+      "comments": [
+        {
+          "author": "Rhys",
+          "time": "2 weeks ago",
+          "text": "Waiting on Victor to confirm what was exposed"
+        }
+      ]
+    },
+    {
+      "id": "B-3",
+      "title": "Confirm exactly what data was exposed",
+      "owner": "Victor",
+      "status": "Blocked",
+      "start": "2026-09-28",
+      "due": "2026-10-09",
+      "waiting": [
+        "B-4"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Final list of every data field that was exposed, by member. Needs the vendor's server logs",
+      "comments": [
+        {
+          "author": "Victor",
+          "time": "2 weeks ago",
+          "text": "Can't confirm anything without the vendor's logs. @Monique"
+        }
+      ]
+    },
+    {
+      "id": "B-4",
+      "title": "Get the vendor's server logs",
+      "owner": "Monique",
+      "status": "Blocked",
+      "start": "2026-09-28",
+      "due": "2026-10-02",
+      "waiting": [
+        "B-2"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Get the full server and access logs from the vendor",
+      "comments": [
+        {
+          "author": "Monique",
+          "time": "2 weeks ago",
+          "text": "Vendor won't send logs until they approve the member letter. They don't want to be named in it"
+        }
+      ]
+    },
+    {
+      "id": "B-9",
+      "title": "Credit monitoring for members",
+      "owner": "Carmen",
+      "status": "In Review",
+      "note": "90% done",
+      "start": "2026-10-05",
+      "due": "2026-10-23",
+      "updated": "1 week ago",
+      "desc": "",
+      "comments": [
+        {
+          "author": "Carmen",
+          "time": "1 week ago",
+          "text": "Almost done. One small thing about how many people the contract covers"
+        }
+      ]
+    },
+    {
+      "id": "B-12",
+      "title": "Call center script",
+      "owner": "Penny",
+      "status": "In Review",
+      "note": "90% done",
+      "start": "2026-10-12",
+      "due": "2026-10-30",
+      "waitingText": "Ingrid",
+      "updated": "4 days ago",
+      "desc": "What agents say when members call about the breach. Current draft says: \"No financial information was involved\"",
+      "comments": [
+        {
+          "author": "Penny",
+          "time": "4 days ago",
+          "text": "Ready for sign-off, waiting on Ingrid"
+        }
+      ]
+    },
+    {
+      "id": "B-16",
+      "title": "Contain the breach",
+      "owner": "Victor",
+      "status": "Done",
+      "start": "2026-09-25",
+      "due": "2026-09-26",
+      "updated": "3 weeks ago",
+      "desc": "Close the exposed server and confirm nobody can still get to the data. Done when we've verified it ourselves",
+      "comments": [
+        {
+          "author": "Victor",
+          "time": "3 weeks ago",
+          "text": "Vendor says they closed the server. Marking done"
+        }
+      ]
+    },
+    {
+      "id": "B-17",
+      "title": "Hire outside breach counsel",
+      "owner": "Abe",
+      "status": "Done",
+      "start": "2026-09-26",
+      "due": "2026-10-02",
+      "updated": "3 weeks ago",
+      "desc": "Hire a law firm that specializes in breach response",
+      "comments": [
+        {
+          "author": "Abe",
+          "time": "3 weeks ago",
+          "text": "Signed. They bill in 6-minute increments, so please keep questions short"
+        }
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "author": "Dale",
+      "time": "Thu 8:00 AM",
+      "text": "Team, we take privacy very seriously. Victor tells me we're on track 💪"
+    },
+    {
+      "author": "Victor",
+      "time": "Thu 8:20 AM",
+      "text": "Forensics in plain English: the server was open for about 4 months, not 3 days. It had partial Social Security numbers and bank account info for 38,000 members. And someone downloaded the whole thing, twice. Still on track"
+    },
+    {
+      "author": "Penny",
+      "time": "Thu 8:24 AM",
+      "text": "The call center script says no financial information was involved"
+    },
+    {
+      "author": "Victor",
+      "time": "Thu 8:25 AM",
+      "text": "It's a draft"
+    },
+    {
+      "author": "Rhys",
+      "time": "Thu 11:00 AM",
+      "text": "I can't write the member letter until Victor confirms what was exposed"
+    },
+    {
+      "author": "Victor",
+      "time": "Thu 11:02 AM",
+      "text": "Can't confirm until Monique gets the vendor's logs"
+    },
+    {
+      "author": "Monique",
+      "time": "Thu 11:05 AM",
+      "text": "The vendor won't send logs until they approve the member letter. They don't want to be named"
+    },
+    {
+      "author": "Carmen",
+      "time": "Thu 2:40 PM",
+      "text": "Credit monitoring is almost set. Small thing: our contract covers 100,000 sign-ups and we're notifying 400,000 people"
+    },
+    {
+      "author": "Penny",
+      "time": "Fri 9:10 AM",
+      "text": "When 400,000 letters land, my team is 12 people. Who's planning for that?"
+    },
+    {
+      "author": "Ingrid",
+      "time": "Fri 9:30 AM",
+      "text": "I'm on the risk assessment, every regulator notice, and sign-off on every letter and script. I am one person. I have not had a real lunch since Sept 25"
+    },
+    {
+      "author": "Abe",
+      "time": "Fri 10:02 AM",
+      "text": "Outside counsel is asking for the vendor's access logs from after the server was closed. Do we still give that vendor access to anything?"
+    },
+    {
+      "author": "Dale",
+      "time": "Fri 10:15 AM",
+      "text": "I'm drafting a statement for reporters myself. Rhys you can focus on the letter"
+    }
+  ],
+  "notes": {
+    "title": "Incident response sync",
+    "date": "2026-10-15",
+    "attendees": [
+      "Dale",
+      "Ingrid",
+      "Victor",
+      "Rhys",
+      "Monique",
+      "Carmen",
+      "Abe"
+    ],
+    "bullets": [
+      "Dale opened by reading the trust restoration roadmap. It has four pillars",
+      "Member letter, data scope, and vendor logs: Rhys is waiting on Victor, Victor is waiting on Monique, Monique's vendor is waiting on Rhys's letter. Abe suggested \"a call\"",
+      "Ingrid owns the risk assessment, every regulator notice, and sign-off on every word members see. She joined 20 minutes late from another call",
+      "Forensics: Victor says on track. Carmen asked what \"scope revision pending\" means. Victor said \"more people.\" Moved on",
+      "Credit monitoring: 90% done. The last 10% is that the contract covers 100,000 people and we're notifying 400,000",
+      "Call center script: 90% done. It says no financial information was involved",
+      "Mailing: the ticket says TBD until we know the scope. The print vendor needed a booking by Oct 9 to mail 400,000 letters in time",
+      "Extra phone staff for when the letters land: nobody owns it",
+      "Removing the vendor's access is still assigned to Stuart, who left in August. Nobody has checked whether it happened",
+      "Two press statements are being written, Rhys's and Dale's. Agreed Dale's \"has more heart\"",
+      "The deadline stays Nov 24, 60 days from discovery"
+    ]
+  }
+}

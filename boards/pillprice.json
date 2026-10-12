@@ -1,0 +1,527 @@
+{
+  "project": {
+    "name": "PillPrice launch",
+    "brief": "Out of Pocket is expanding, fast, and is now running more big projects at once than any newsletter company should. This is one of them. This morning on the KnowledgeFest stage, Nikhil announced that OOP launches PillPrice, its first app, in 3 weeks. Employers give it to their employees, and it shows them the cheapest nearby pharmacy for their prescription. The date is not moving. The project tracker says things are mostly on track. Your job is to figure out what's really going on before launch day",
+    "company": "Out of Pocket Health, a healthcare newsletter and events company that is now expanding into a lot of things at once",
+    "product": "PillPrice, OOP's first app. Employers give it to their employees, and it shows them the cheapest nearby pharmacy for their prescription",
+    "today": "2026-10-17",
+    "deadline": "2026-11-09",
+    "deadlineLabel": "Launch day",
+    "context": "Nikhil announced the launch date on stage at KnowledgeFest this morning, so it is not moving"
+  },
+  "team": {
+    "Nikhil": {
+      "role": "CEO. Announced the launch date on stage at KnowledgeFest this morning. Flying home after"
+    },
+    "Priya": {
+      "role": "Legal. The only lawyer"
+    },
+    "Sam": {
+      "role": "Engineering lead"
+    },
+    "Marisol": {
+      "role": "Marketing"
+    },
+    "Tyler": {
+      "role": "Sales"
+    },
+    "Ken": {
+      "role": "Finance"
+    },
+    "Dana": {
+      "role": "Customer Support"
+    },
+    "Rob": {
+      "role": "Design"
+    },
+    "Kayla": {
+      "role": "Used to run social media. Left the company last year"
+    },
+    "Everyone": {
+      "role": ""
+    }
+  },
+  "tickets": [
+    {
+      "id": "L-8",
+      "title": "Submit app to the app stores",
+      "owner": "Sam",
+      "status": "To Do",
+      "start": "2026-11-02",
+      "due": "2026-11-06",
+      "waiting": [
+        "L-6"
+      ],
+      "updated": "Never",
+      "desc": "Submit the app update with PillPrice to both app stores. Needs the approved listing text and screenshots from L-6. Done when both stores show the update as live",
+      "comments": []
+    },
+    {
+      "id": "L-10",
+      "title": "Customer support FAQ",
+      "owner": "Dana",
+      "status": "To Do",
+      "start": "2026-09-28",
+      "due": "2026-10-30",
+      "waitingText": "Someone to explain how it works",
+      "updated": "3 weeks ago",
+      "desc": "Need FAQ for support team before launch",
+      "comments": [
+        {
+          "author": "Marisol",
+          "time": "3 weeks ago",
+          "text": "Assigning to @Dana since she's support. She'll need someone to explain how it works"
+        }
+      ]
+    },
+    {
+      "id": "L-15",
+      "title": "Train the sales team",
+      "owner": "Tyler",
+      "status": "To Do",
+      "start": "2026-11-06",
+      "due": "2026-11-06",
+      "waiting": [
+        "L-3"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "One-hour session to walk the sales team through the pitch deck (L-3) and pricing so they can start selling on launch day. Scheduled for Fri Nov 6, the last workday before launch",
+      "comments": [
+        {
+          "author": "Tyler",
+          "time": "2 weeks ago",
+          "text": "Booked the big conference room. Lunch is ordered"
+        }
+      ]
+    },
+    {
+      "id": "L-16",
+      "title": "Spanish version of the app",
+      "owner": "Marisol",
+      "status": "To Do",
+      "start": "",
+      "due": "",
+      "updated": "5 weeks ago",
+      "desc": "TBD, will fill in details after kickoff",
+      "comments": [
+        {
+          "author": "Ken",
+          "time": "5 weeks ago",
+          "text": "Is translation in anyone's budget?"
+        }
+      ]
+    },
+    {
+      "id": "L-17",
+      "title": "Help center articles",
+      "owner": "",
+      "status": "To Do",
+      "start": "2026-11-02",
+      "due": "2026-11-06",
+      "waiting": [
+        "L-10"
+      ],
+      "updated": "3 weeks ago",
+      "desc": "Write help articles for PillPrice",
+      "comments": []
+    },
+    {
+      "id": "L-1",
+      "title": "Launch PillPrice",
+      "owner": "Everyone",
+      "status": "In Progress",
+      "start": "2026-08-18",
+      "due": "2026-11-09",
+      "updated": "Yesterday",
+      "desc": "Get everything ready for launch",
+      "commentCount": 43,
+      "comments": [
+        {
+          "author": "Nikhil",
+          "time": "2 weeks ago",
+          "text": "Love the energy team!! 🚀"
+        },
+        {
+          "author": "Tyler",
+          "time": "2 weeks ago",
+          "text": "+1"
+        },
+        {
+          "author": "Marisol",
+          "time": "6 days ago",
+          "text": "Can we agree launch means the press release goes out?"
+        },
+        {
+          "author": "Sam",
+          "time": "6 days ago",
+          "text": "Launch means it's live in the app stores. The press release is marketing"
+        },
+        {
+          "author": "Tyler",
+          "time": "5 days ago",
+          "text": "Launch is when a customer signs. Before that it's just an app update"
+        },
+        {
+          "author": "Ken",
+          "time": "5 days ago",
+          "text": "For revenue purposes, launch is the first invoice"
+        },
+        {
+          "author": "Rob",
+          "time": "3 days ago",
+          "text": "Following"
+        },
+        {
+          "author": "Marisol",
+          "time": "Yesterday",
+          "text": "Can we take this to a meeting"
+        }
+      ]
+    },
+    {
+      "id": "L-9",
+      "title": "Engineering build",
+      "owner": "Sam",
+      "status": "In Progress",
+      "note": "On track",
+      "start": "2026-08-31",
+      "due": "2026-10-30",
+      "updated": "Today",
+      "desc": "Build PillPrice: pull pharmacy prices every night, match them to the member's prescription, and show the cheapest nearby pharmacies in the app. Done when it works end to end on the test build",
+      "comments": [
+        {
+          "author": "Sam",
+          "time": "2 weeks ago",
+          "text": "On track"
+        },
+        {
+          "author": "Sam",
+          "time": "1 week ago",
+          "text": "On track. Small data thing, nothing to worry about"
+        },
+        {
+          "author": "Sam",
+          "time": "Today",
+          "text": "Pricing ingestion pipeline migrated to the new vendor API (currently on their trial contract). Nightly batch p95 runtime regressed to 9h, exceeding the refresh SLA. Investigating an idempotency issue on retries causing duplicate price records. No change to launch ETA"
+        }
+      ]
+    },
+    {
+      "id": "L-11",
+      "title": "Launch email to members",
+      "owner": "Marisol",
+      "status": "In Progress",
+      "note": "90% done",
+      "start": "2026-10-05",
+      "due": "2026-11-02",
+      "updated": "1 week ago",
+      "desc": "Email to all members announcing PillPrice, sent the morning of launch. Draft is in the shared folder. Headline: \"Save up to 80% on your prescriptions\"",
+      "comments": [
+        {
+          "author": "Marisol",
+          "time": "1 week ago",
+          "text": "90% there. Just need Legal to bless the headline"
+        }
+      ]
+    },
+    {
+      "id": "L-14",
+      "title": "TikTok strategy",
+      "owner": "Kayla",
+      "status": "In Progress",
+      "start": "2025-08-19",
+      "due": "2025-12-17",
+      "updated": "14 months ago",
+      "desc": "Short videos of members finding cheaper prescriptions. Need 3 concepts and a posting schedule",
+      "comments": [
+        {
+          "author": "Kayla",
+          "time": "14 months ago",
+          "text": "circling back after Q3"
+        }
+      ]
+    },
+    {
+      "id": "L-19",
+      "title": "Write launch email for members",
+      "owner": "Tyler",
+      "status": "In Progress",
+      "start": "2026-10-14",
+      "due": "2026-11-02",
+      "updated": "4 days ago",
+      "desc": "Email to members about PillPrice. Will reuse the sales messaging",
+      "comments": [
+        {
+          "author": "Tyler",
+          "time": "4 days ago",
+          "text": "Drafting v1, should be quick"
+        }
+      ]
+    },
+    {
+      "id": "L-2",
+      "title": "Set final price",
+      "owner": "Ken",
+      "status": "Blocked",
+      "start": "2026-09-21",
+      "due": "2026-10-09",
+      "waiting": [
+        "L-3"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Decide what employers pay for PillPrice: a monthly fee per employee, or one flat yearly price. Need to know what customers will pay before finalizing",
+      "comments": [
+        {
+          "author": "Ken",
+          "time": "2 weeks ago",
+          "text": "Need sales input before I can finalize. @Tyler"
+        }
+      ]
+    },
+    {
+      "id": "L-3",
+      "title": "Sales pitch deck",
+      "owner": "Tyler",
+      "status": "Blocked",
+      "start": "2026-09-21",
+      "due": "2026-10-16",
+      "waiting": [
+        "L-4"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Per our convo w/ the team, aligning on the north star narrative for the deck. Want to make sure it's punchy but also enterprise-ready, and speaks to the CFO persona AND the HR persona AND the employee persona (see notes from the offsite). Ideally ties into our Q4 OKRs around member engagement synergy and the broader platform story. Also need to revisit the competitive slide. Blocked on pricing page (L-4) for now. Let's circle back",
+      "comments": [
+        {
+          "author": "Marisol",
+          "time": "2 weeks ago",
+          "text": "Need anything from me?"
+        },
+        {
+          "author": "Tyler",
+          "time": "2 weeks ago",
+          "text": "Just the pricing page!"
+        }
+      ]
+    },
+    {
+      "id": "L-4",
+      "title": "Pricing page on website",
+      "owner": "Marisol",
+      "status": "Blocked",
+      "start": "2026-10-05",
+      "due": "2026-10-23",
+      "waiting": [
+        "L-2"
+      ],
+      "updated": "2 weeks ago",
+      "desc": "Public page explaining PillPrice and what it costs. The sales deck and launch email both link here. Can't publish without a final price",
+      "comments": [
+        {
+          "author": "Marisol",
+          "time": "2 weeks ago",
+          "text": "@Ken any update on price?"
+        }
+      ]
+    },
+    {
+      "id": "L-12",
+      "title": "Press release",
+      "owner": "Marisol",
+      "status": "Blocked",
+      "start": "2026-10-05",
+      "due": "2026-11-02",
+      "waitingText": "Nikhil",
+      "updated": "1 week ago",
+      "desc": "Announce PillPrice to industry press on launch day. Includes a quote from Nikhil",
+      "comments": [
+        {
+          "author": "Marisol",
+          "time": "1 week ago",
+          "text": "Draft done. Wrote Nikhil's quote for him, just needs his ok"
+        }
+      ]
+    },
+    {
+      "id": "L-5",
+      "title": "Legal review of marketing claims",
+      "owner": "Priya",
+      "status": "In Review",
+      "start": "2026-09-28",
+      "due": "2026-10-14",
+      "updated": "9 days ago",
+      "desc": "",
+      "comments": [
+        {
+          "author": "Marisol",
+          "time": "9 days ago",
+          "text": "Added the launch email headline here for review"
+        }
+      ]
+    },
+    {
+      "id": "L-6",
+      "title": "Legal review of app store listing",
+      "owner": "Priya",
+      "status": "In Review",
+      "start": "2026-09-28",
+      "due": "2026-10-16",
+      "updated": "9 days ago",
+      "desc": "Review",
+      "comments": []
+    },
+    {
+      "id": "L-7",
+      "title": "Update terms of service",
+      "owner": "Priya",
+      "status": "In Review",
+      "note": "90% done",
+      "start": "2026-09-07",
+      "due": "2026-10-02",
+      "updated": "4 weeks ago",
+      "desc": "",
+      "comments": []
+    },
+    {
+      "id": "L-13",
+      "title": "Final app screen designs",
+      "owner": "Rob",
+      "status": "Done",
+      "start": "2026-08-10",
+      "due": "2026-09-04",
+      "updated": "6 weeks ago",
+      "desc": "Final screens for PillPrice: search for your prescription, see a list of nearby pharmacies sorted by price, tap one for directions. Final designs attached",
+      "comments": [
+        {
+          "author": "Rob",
+          "time": "6 weeks ago",
+          "text": "Final! Moving to done"
+        },
+        {
+          "author": "Sam",
+          "time": "5 weeks ago",
+          "text": "Thanks! We ended up going with a map instead of a list but this is helpful"
+        }
+      ]
+    },
+    {
+      "id": "L-18",
+      "title": "Pick the launch date",
+      "owner": "Nikhil",
+      "status": "Done",
+      "start": "2026-10-05",
+      "due": "2026-10-17",
+      "updated": "Today",
+      "desc": "Pick a launch date Nikhil can announce on stage at KnowledgeFest",
+      "comments": [
+        {
+          "author": "Nikhil",
+          "time": "Today",
+          "text": "Announced on stage! 🎤"
+        }
+      ]
+    },
+    {
+      "id": "L-20",
+      "title": "QA testing",
+      "owner": "Sam",
+      "status": "Done",
+      "start": "2026-10-12",
+      "due": "2026-10-16",
+      "updated": "1 week ago",
+      "desc": "Test PillPrice on both phone types before launch: search, prices, directions, and what happens when a pharmacy has no price",
+      "comments": [
+        {
+          "author": "Sam",
+          "time": "1 week ago",
+          "text": "Skipping for now, we'll test in production. Moving to Done"
+        }
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "author": "Marisol",
+      "time": "Thu 2:14 PM",
+      "text": "Press release is ready the second Nikhil approves his quote. I wrote the quote for him so he doesn't have to think about it. He says PillPrice is \"the most important thing OOP has built since the newsletter\" which I think he'll agree with"
+    },
+    {
+      "author": "Nikhil",
+      "time": "Thu 2:14 PM",
+      "text": "Automatic reply: I'm at KnowledgeFest, then on a plane until Thursday. If this is urgent, please wait until Thursday"
+    },
+    {
+      "author": "Ken",
+      "time": "Thu 3:40 PM",
+      "text": "Read the launch email draft. Where does 80% come from? Our own numbers say members save about 15% on average. The 80% happened once, for one guy, on one tube of cream"
+    },
+    {
+      "author": "Marisol",
+      "time": "Thu 3:44 PM",
+      "text": "It says UP TO 80%. If that's a problem Legal will tell us"
+    },
+    {
+      "author": "Tyler",
+      "time": "Thu 4:02 PM",
+      "text": "Heads up, I'm writing the member launch email. Should be quick 💪"
+    },
+    {
+      "author": "Marisol",
+      "time": "Thu 4:03 PM",
+      "text": "The one I'm 90% done with?"
+    },
+    {
+      "author": "Tyler",
+      "time": "Thu 4:20 PM",
+      "text": "Ken any word on price? I can't ask customers what they'd pay until there's a pricing page to show them"
+    },
+    {
+      "author": "Ken",
+      "time": "Thu 4:31 PM",
+      "text": "I can't set a price until you tell me what customers will pay. Happy to keep doing this though"
+    },
+    {
+      "author": "Rob",
+      "time": "Fri 8:47 AM",
+      "text": "Opened the test build for the first time. Why is there a map? My final designs are a list. Also the pharmacy on Elm Street shows up twice, once at $12 and once at $41"
+    },
+    {
+      "author": "Sam",
+      "time": "Fri 8:59 AM",
+      "text": "Known idempotency issue on retries, no change to ETA. Prices also refresh overnight now, so worst case they're about a day old. Totally normal. Still on track"
+    },
+    {
+      "author": "Dana",
+      "time": "Fri 9:12 AM",
+      "text": "Hi all, I just saw on LinkedIn that we're launching something called PillPrice in 3 weeks? Is there a meeting I should be in? When a member sees $12 and $41 for the same pharmacy, support is who they call"
+    },
+    {
+      "author": "Priya",
+      "time": "Fri 9:30 AM",
+      "text": "I have 11 things in my queue. Today is the holiday party waiver because someone requested a mechanical bull. I will get to PillPrice when I get to PillPrice"
+    }
+  ],
+  "notes": {
+    "title": "PillPrice launch sync",
+    "date": "2026-10-15",
+    "attendees": [
+      "Sam",
+      "Marisol",
+      "Tyler",
+      "Ken",
+      "Rob"
+    ],
+    "bullets": [
+      "Spent the first 20 minutes on what \"launched\" means. Sam: it's in the app stores. Marisol: the press release is out. Tyler: a customer signed. Ken: someone got invoiced. Parked, will keep discussing in the L-1 comments",
+      "Launch date: Nikhil is announcing Nov 9 on stage at KnowledgeFest on Saturday. He picked it because \"the 9th felt right.\" Nobody has checked it against the board",
+      "Pricing: Ken is waiting on Tyler, Tyler is waiting on Marisol, Marisol is waiting on Ken. Group agreed this is a great conversation to keep having",
+      "Legal: Priya couldn't make it. Her note says terms of service are 90% done. The last 10% is who's responsible if the app shows a wrong price. She says that part is the actual work",
+      "App stores: Sam will submit the Friday before launch. Rob asked how long approval takes. Sam: \"usually a few days, unless they reject it, then you start over.\" Moved on",
+      "Engineering: Sam says on track. Rob asked what \"p95 regressed\" means. Sam said it's fine",
+      "Spanish version: Ken mentioned about a third of members use the app in Spanish. Translation isn't in anyone's budget. Marisol will fill in the ticket after kickoff. Kickoff was 7 weeks ago",
+      "QA: Sam moved it to Done since the plan is to test in production. No objections",
+      "Sales training stays on Fri Nov 6, the last workday before launch. Tyler will build the deck once there's a price",
+      "Customer support: not on the agenda",
+      "Action items: none assigned. Next sync TBD"
+    ]
+  }
+}

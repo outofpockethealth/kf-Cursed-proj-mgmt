@@ -41,6 +41,10 @@ function checkBoard(file) {
     if (!!t.start !== !!t.due) warnings.push(`${who}: has a ${t.start ? "start" : "due"} date but no ${t.start ? "due" : "start"} date`);
     if (t.owner && t.owner !== "Everyone" && b.team && !b.team[t.owner]) warnings.push(`${who}: owner "${t.owner}" isn't in team`);
     if (t.waiting !== undefined && !Array.isArray(t.waiting)) errors.push(`${who}: "waiting" must be a list of ticket ids`);
+    if (t.comments !== undefined && !Array.isArray(t.comments)) errors.push(`${who}: "comments" must be a list`);
+    for (const [j, c] of (Array.isArray(t.comments) ? t.comments : []).entries())
+      for (const k of ["author", "text"]) if (!c[k]) errors.push(`${who}: comment #${j + 1} is missing "${k}"`);
+    if (t.commentCount !== undefined && !Number.isInteger(t.commentCount)) errors.push(`${who}: "commentCount" must be a whole number`);
   }
   for (const t of b.tickets)
     for (const w of Array.isArray(t.waiting) ? t.waiting : [])

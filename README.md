@@ -2,100 +2,71 @@
 
 ## Cursed Project Management
 
-six projects are in trouble. your table just got handed one.
+*An exercise for KnowledgeFest 2026*
 
-you meet the CEO in 30 minutes. find out what's really going on: <ins>what's stuck, who's stuck, and what nobody's noticed</ins>.
+Six projects are in trouble. Your table just got handed one. You meet the CEO in 30 minutes: find out what's really going on, then build something with AI that makes the work **better, faster, weirder, or more fun**.
 
-then use AI to build something that shows it. useful, ridiculous, or both.
+Note: Everything here is made up: the companies, the people, the tickets.
 
-your mission, if you like missions: **Find the truth about your project, then build something that shows it.**
+### 1. Open your board
 
-The only rule: **it has to tell the truth.** A fun thing that's true beats a polished dashboard that isn't.
+Scan the QR code on your table, or pick your project from the [project list](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/).
 
-Everything here is made up. The companies, the people, the tickets. Use it however you like.
+### 2. Investigate the backlog WITHOUT AI. (5 min)
 
-### tl;dr 1. Open your board 2. Investigate (no AI) 3. Build with AI 4. Brief the CEO
+Do it the old-school way, all together. Pull up the backlog on your computers and read every ticket. Read the Slack thread and the meeting notes. Keep asking "wait, what's actually going on here?" Your goal is to get situational awareness on the project as fast as possible
 
-**1. Open your board.** Scan the QR code on your table, or pick your project from the [project list](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/).
+Then, as a table, agree on one sentence:
 
-**2. Investigate. No AI yet. (10 min)**
+> **The biggest risk to this project is \_\_\_**
 
-Read three things:
-* **The board.** The same tickets show up as a Board (like Trello), a List (like Asana), Issues (like Jira), and a Timeline. Use whichever view your brain likes. Click any ticket for the details
-* **The Slack thread.** What people are actually saying
-* **The meeting notes.** What people said out loud
+### 3. Build with AI. (20 min, one laptop)
 
-Then, as a table, finish this sentence:
+Hit **Copy for AI** in the sidebar. It copies a starter prompt plus the whole project (board, Slack, and meeting notes) in one paste. Paste it into your favorite LLM and see what the AI thinks is the biggest risk to the project
 
-> **The thing that will sink this project is \_\_\_**
+Then build something that makes the work better, faster, weirder, or more fun. Some directions:
 
-Type it into the **Copy for AI** tab and lock it in.
+* **Better:** catch what people miss. Find tasks whose description contradicts their title, or tasks still "In Progress" that Slack says are done. If you have 3 tasks that are all blocked on each other, build something that groups dependent tasks visually Minority Report-style
 
-> [!TIP]
-> The board is what people *say* is happening. Slack and the meeting notes are where the truth tends to leak out. Read all three before you decide.
+  ![A Minority Report-style interface for sorting tasks](minority-report-ui.jpg)
 
-**3. Build with AI. (20 min)**
+* **Faster:** get situational awareness in 30 seconds instead of 30 minutes. A one-page "what changed this week" brief, a "who's overloaded" view, a morning digest that pulls the board, Slack, and notes together
 
-Once your sentence is locked in, hit **Copy for AI**. That copies everything in one paste: a starter prompt, your sentence, and the whole project. Paste it into Claude, ChatGPT, Gemini, or whatever you use.
+* **Weirder:**
 
-The AI goes first: it tells you what *it* thinks will sink the project. Then it compares its answer to yours. Did it catch something you missed? Did the board fool it?
+  * put a task in an NCIS-style interrogation room when you're trying to figure out more information about it
+  * If you have duplicate tasks, have the LLM create an animation where [one task eats the other, single-celled-organism-style](https://www.youtube.com/watch?v=sq6Y54mxjOg)
 
-Then build something that shows the truth. Ideas to get you started:
-* a tabloid front page about the project
-* an obituary for the project, written in advance
-* a "what the status update says vs. what it means" translator
-* a bingo card for the next project meeting
-* a song, a poem, a movie trailer
-* an actual tool you'd use at work on Monday
+* **More fun:**
 
-> [!TIP]
-> **Done means one working screen.** A screenshot of a half-working thing counts. Ask for something the AI can show right in the chat, so you don't have to figure out how to run code.
+  * celebrate work that got done! When a milestone closes, use Opus to create a [custom song + music video](https://www.reddit.com/r/ClaudeAI/comments/1wt2qwh/i_gave_opus_55_one_prompt_about_ai_fearmongering/).
+  * Swipe on tickets, Tinder-style, to determine whether to do today or defer or delegate
 
-**4. Brief the CEO. (10 min)**
+When you're done, add a screenshot, a link, and one sentence to your team's slide in the [show-and-tell deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit) (also under **Share your build** in the site's sidebar). A screenshot of a half-working thing counts.
 
-A few teams brief the CEO, in any format they want. One award, by applause. Two questions: **is it true? is it fun?**
+### 4. Brief the CEO. (10 min)
 
-## House rules
+We put the [show-and-tell deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit) on the big screen and a few teams walk through their slide. Nobody has to plug in a laptop.
 
-* **Use the fake tickets, not yours.** Don't paste real company or patient data into an AI tool. The whole point of the fake projects is that you don't have to
-* **One laptop, one person typing.** If you're the most AI-comfortable person at the table, coach. Let someone else drive
-* **Investigate before you build.** If the AI reads the board first, the AI finds the problems and you watch. Reading it yourself is the fun part
+### Why this exercise
 
-## The projects
+* **Getting up to speed fast is a core ops skill.** You get handed a project that's already moving and need to figure out what's going on, quickly. You can build tools that make that easier
 
-Your table number tells you which one is yours.
+* **Projects get messier the longer they run.** Context piles up like entropy. Usually we reverse it by getting the people with conflicting stories into one room. AI can help too, if you point it at the right spots
 
-| # | Project | Board |
-|---|---|---|
-| 1 | Product launch: PillPrice, a pharmacy price checker that launches in 3 weeks | [open](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=product-launch) |
-| 2 | Merging two companies' systems after an acquisition | coming soon |
-| 3 | Rolling out an AI tool company-wide | coming soon |
-| 4 | Onboarding a cohort of new hires | coming soon |
-| 5 | Provider credentialing | coming soon |
-| 6 | Data breach response | coming soon |
+* **AI is also great at building fun things.** If that's where your table wants to go, go for it
 
-Each project has a board, a short Slack thread, and one set of meeting notes. They're all on the board page, in their own tabs.
+### The projects
 
----
+| #  | Project                                                                                                  |
+| :- | :------------------------------------------------------------------------------------------------------- |
+| 1  | [PillPrice launch](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=pillprice)             |
+| 2  | [Bayberry integration](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=merger)            |
+| 3  | [Fern rollout](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=ai-rollout)                |
+| 4  | [OOP Navigators day one](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=onboarding)      |
+| 5  | [OOP Primary Care opening](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=credentialing) |
+| 6  | [Larkfield breach response](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=breach)       |
 
-## For organizers
+***
 
-The site is plain HTML on GitHub Pages: no login, no build step.
-
-| File | What it is |
-|---|---|
-| `boards/<slug>.json` | One project. The format is in [BOARD_FORMAT.md](BOARD_FORMAT.md). Hand that file to Claude chat to generate new ones |
-| `tables.json` | Which board each table gets, the landing page text, and `submitUrl` |
-| `starter-prompt.txt` | The prompt that Copy for AI pastes. `{{sentence}}` and `{{data}}` get filled in |
-| `scripts/check.js` | Checks every board for broken links between tickets, missing fields, and bad dates. Run `node scripts/check.js` |
-
-**Links:** `?board=<slug>` opens a board. `?table=<n>` opens whatever board that table is assigned in `tables.json`, so QR codes can point there and survive a rename.
-
-**Add a board:** save it as `boards/<slug>.json`, point a table at it in `tables.json`, run `node scripts/check.js`, push. The site updates in about a minute.
-
-**Collect sentences:** set `submitUrl` in `tables.json` to a pre-filled Google Form link with `{project}`, `{board}`, and `{sentence}` where the answers go. A "Send it to the organizers" button shows up once a team locks in. Leave it empty to hide the button.
-
-**Run locally:** `python3 -m http.server 8000`, then open http://localhost:8000 (opening the file directly won't load the boards).
-
-> [!CAUTION]
-> **This repo is public. Answer keys never go in it.** `.gitignore` blocks `answer-keys/` and any `*answer-key*` file, `check.js` fails if one is in the folder, and the pre-commit hook refuses them. Turn the hook on after cloning: `git config core.hooksPath .githooks`
+Running this exercise? See [ORGANIZERS.md](ORGANIZERS.md).

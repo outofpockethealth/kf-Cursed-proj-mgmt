@@ -1,31 +1,31 @@
 {
-  "title": "Pick your table",
-  "subtitle": "Scan the QR code on your table, or tap your table number below",
-  "submitUrl": "",
+  "title": "Cursed Project Management",
+  "subtitle": "Pick your project. Your table number tells you which one is yours",
+  "shareUrl": "https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit",
   "tables": [
     {
       "table": 1,
-      "board": "product-launch"
+      "board": "pillprice"
     },
     {
       "table": 2,
-      "board": null
+      "board": "merger"
     },
     {
       "table": 3,
-      "board": null
+      "board": "ai-rollout"
     },
     {
       "table": 4,
-      "board": null
+      "board": "onboarding"
     },
     {
       "table": 5,
-      "board": null
+      "board": "credentialing"
     },
     {
       "table": 6,
-      "board": null
+      "board": "breach"
     }
   ]
 }
