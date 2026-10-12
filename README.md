@@ -66,7 +66,3 @@ We put the [show-and-tell deck](https://docs.google.com/presentation/d/1qWSAZKHw
 | 4  | [OOP Navigators day one](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=onboarding)      |
 | 5  | [OOP Primary Care opening](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=credentialing) |
 | 6  | [Larkfield breach response](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=breach)       |
-
-***
-
-Running this exercise? See [ORGANIZERS.md](ORGANIZERS.md).
