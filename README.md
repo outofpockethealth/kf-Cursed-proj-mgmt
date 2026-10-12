@@ -1,3 +1,5 @@
+![How did they build this without scrum masters, kanban boards, story pointing, and sprint planning](how-did-they-build-this.png)
+
 ## Cursed Project Management
 
 six projects are in trouble. your table just got handed one.
