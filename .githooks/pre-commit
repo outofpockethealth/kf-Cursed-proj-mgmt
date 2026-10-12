@@ -1,0 +1,10 @@
+#!/bin/sh
+# Blocks commits that add answer keys, then runs the board check
+bad=$(git diff --cached --name-only --diff-filter=ACR | grep -iE 'answer[-_ ]?key')
+if [ -n "$bad" ]; then
+  echo "Commit blocked: these look like answer keys, and this repo is public:"
+  echo "$bad"
+  echo "Unstage them with: git restore --staged <file>"
+  exit 1
+fi
+node scripts/check.js > /dev/null || { echo "Commit blocked: node scripts/check.js found errors"; exit 1; }

@@ -1,0 +1,31 @@
+{
+  "title": "Pick your table",
+  "subtitle": "Scan the QR code on your table, or tap your table number below",
+  "submitUrl": "",
+  "tables": [
+    {
+      "table": 1,
+      "board": "product-launch"
+    },
+    {
+      "table": 2,
+      "board": null
+    },
+    {
+      "table": 3,
+      "board": null
+    },
+    {
+      "table": 4,
+      "board": null
+    },
+    {
+      "table": 5,
+      "board": null
+    },
+    {
+      "table": 6,
+      "board": null
+    }
+  ]
+}

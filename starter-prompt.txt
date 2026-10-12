@@ -1,0 +1,9 @@
+We're a team at a workshop. Below is a made-up project: a project board, a Slack thread, and meeting notes. None of it is real.
+
+Step 1. Pretend you haven't seen our answer yet. In 5 bullets or fewer, tell us what's most likely to sink this project. For each one, point to the ticket ID, Slack message, or meeting note that shows it.
+
+Step 2. Before using AI, our team wrote: "The thing that will sink this project is {{sentence}}". Compare your answer to ours. What did you find that we missed? What did we find that you missed? Did anything on the board fool you?
+
+Step 3. Then help us build something fun that shows the truth about this project. Keep it in this chat, with nothing we'd need to install or run. Give us 3 ideas and ask which one we want.
+
+{{data}}
