@@ -1,31 +1,115 @@
 {
   "title": "Cursed Project Management",
-  "subtitle": "Pick your project. Your table number tells you which one is yours",
+  "subtitle": "Find your table number. That's your project",
   "shareUrl": "https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit",
   "tables": [
     {
       "table": 1,
-      "board": "pillprice"
+      "board": "product-launch"
     },
     {
       "table": 2,
-      "board": "merger"
+      "board": "product-launch"
     },
     {
       "table": 3,
-      "board": "ai-rollout"
+      "board": "product-launch"
     },
     {
       "table": 4,
-      "board": "onboarding"
+      "board": "product-launch"
     },
     {
       "table": 5,
-      "board": "credentialing"
+      "board": "product-launch"
     },
     {
       "table": 6,
-      "board": "breach"
+      "board": "merger"
+    },
+    {
+      "table": 7,
+      "board": "merger"
+    },
+    {
+      "table": 8,
+      "board": "merger"
+    },
+    {
+      "table": 9,
+      "board": "merger"
+    },
+    {
+      "table": 10,
+      "board": "ai-rollout"
+    },
+    {
+      "table": 11,
+      "board": "ai-rollout"
+    },
+    {
+      "table": 12,
+      "board": "ai-rollout"
+    },
+    {
+      "table": 13,
+      "board": "ai-rollout"
+    },
+    {
+      "table": 14,
+      "board": "onboarding"
+    },
+    {
+      "table": 15,
+      "board": "onboarding"
+    },
+    {
+      "table": 16,
+      "board": "onboarding"
+    },
+    {
+      "table": 17,
+      "board": "onboarding"
+    },
+    {
+      "table": 18,
+      "board": "onboarding"
+    },
+    {
+      "table": 19,
+      "board": "credentialing"
+    },
+    {
+      "table": 20,
+      "board": "credentialing"
+    },
+    {
+      "table": 21,
+      "board": "credentialing"
+    },
+    {
+      "table": 22,
+      "board": "credentialing"
+    },
+    {
+      "table": 23,
+      "board": "credentialing"
+    },
+    {
+      "table": 24,
+      "board": "credentialing"
+    },
+    {
+      "table": 25,
+      "board": "data-breach"
+    },
+    {
+      "table": 26,
+      "board": "data-breach"
+    },
+    {
+      "table": 27,
+      "board": "data-breach"
     }
   ]
 }

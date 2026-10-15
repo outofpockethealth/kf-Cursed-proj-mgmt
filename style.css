@@ -135,8 +135,7 @@ a.msg{max-width:560px;margin:48px auto;padding:0 20px;text-align:center;color:va
 .card.late{border-left:4px solid var(--late)}
 .jump{color:var(--prog);font-weight:600;text-decoration:underline;text-underline-offset:2px}
 .jump:hover{color:var(--ink)}
-.briefwrap{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--launch);border-radius:10px;padding:12px 16px;margin:0 0 12px;max-width:900px}
-.brief{margin:0;font-size:15px}
+.brief{margin:12px 0 0;font-size:15px;max-width:80ch;border-left:4px solid var(--launch);padding:2px 0 2px 12px}
 .ccount{font-size:12px;color:var(--ink2);margin-left:auto}
 .chead{font-size:15px;margin:18px 0 6px;display:flex;gap:6px;align-items:baseline}
 .drawer .smsg{padding:8px 0;grid-template-columns:28px 1fr;gap:8px}
@@ -189,7 +188,7 @@ a.msg{max-width:560px;margin:48px auto;padding:0 20px;text-align:center;color:va
 .dir tbody tr[data-href]{cursor:pointer}
 .dir tbody tr[data-href]:hover{background:var(--col)}
 .dir tr.soon td{color:var(--ink2);font-style:italic}
-.tno{font-weight:700;font-size:16px;text-align:center;width:56px;color:var(--ink2)}
+.tno{font-weight:700;font-size:15px;text-align:center;width:72px;color:var(--ink2);white-space:nowrap}
 .pcell{display:flex;gap:10px;align-items:center;color:inherit;text-decoration:none}
 .pcell b{display:block;color:var(--prog)}
 .pcell small,.due small{display:block;color:var(--ink2);font-size:12px;line-height:1.35;max-width:420px}
@@ -229,3 +228,18 @@ a.btn{display:inline-block;text-decoration:none;color:inherit}
 .sharelink{display:block;text-align:center;margin-top:8px;padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-weight:600;font-size:14px;color:var(--ink);text-decoration:none}
 .sharelink:hover{border-color:var(--prog);color:var(--prog)}
 @media (max-width:760px){.sharelink{display:inline-block;margin:0 0 0 4px;white-space:nowrap}}
+
+/* Start here: Copy for AI sits right under the title and brief */
+.aistart{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:16px}
+.aistart p{margin:0;color:var(--ink2);font-size:14px;max-width:62ch}
+.btn.big{display:inline-flex;align-items:center;gap:8px;font-size:17px;padding:12px 22px;border-radius:8px}
+.btn.big .ic{width:18px;height:18px}
+.teampanel{margin-top:14px;max-width:900px}
+.teampanel summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--ink2);display:inline-flex;gap:6px;align-items:baseline}
+.teamlist{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px 18px}
+.teamlist li{display:flex;gap:8px;align-items:flex-start;font-size:14px}
+.teamlist b{margin-right:4px}
+@media (max-width:760px){.btn.big{width:100%;justify-content:center}}
+.teampanel summary::before{content:"\25B8";display:inline-block;width:12px}
+.teampanel[open] summary::before{content:"\25BE"}
+.teampanel summary::-webkit-details-marker{display:none}

@@ -4,27 +4,21 @@
 
 *An exercise for KnowledgeFest 2026*
 
-Six projects are in trouble. Your table just got handed one. You meet the CEO in 30 minutes: find out what's really going on, then build something with AI that makes the work **better, faster, weirder, or more fun**.
+Six projects are in trouble. Your table just got handed one. You meet the CEO in 30 minutes: use AI to find out what's really going wrong, then build something that makes it impossible to ignore, and makes the work **better, faster, weirder, or more fun**.
 
 Note: Everything here is made up: the companies, the people, the tickets.
 
-### 1. Open your board
+### 1. Open your board (5 min)
 
-Scan the QR code on your table, or pick your project from the [project list](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/).
+Scan the QR code on your table. It opens your project. You don't need to read the whole board
 
-### 2. Investigate the backlog WITHOUT AI. (5 min)
+### 2. Copy for AI and get the diagnosis (5 min)
 
-Do it the old-school way, all together. Pull up the backlog on your computers and read every ticket. Read the Slack thread and the meeting notes. Keep asking "wait, what's actually going on here?" Your goal is to get situational awareness on the project as fast as possible
+Hit the big **Copy for AI** button at the top of your board. It copies the whole project (tracker, Slack channel, and meeting notes) with a starter prompt. Paste it into Claude and it tells you the biggest problems, with the receipts
 
-Then, as a table, agree on one sentence:
+### 3. Pick one problem and build (25 min, one laptop)
 
-> **The biggest risk to this project is \_\_\_**
-
-### 3. Build with AI. (20 min, one laptop)
-
-Hit **Copy for AI** in the sidebar. It copies a starter prompt plus the whole project (board, Slack, and meeting notes) in one paste. Paste it into your favorite LLM and see what the AI thinks is the biggest risk to the project
-
-Then build something that makes the work better, faster, weirder, or more fun. Some directions:
+Pick one real problem Claude found. Build something that makes it impossible to ignore. Some directions:
 
 * **Better:** catch what people miss. Find tasks whose description contradicts their title, or tasks still "In Progress" that Slack says are done. If you have 3 tasks that are all blocked on each other, build something that groups dependent tasks visually Minority Report-style
 
@@ -42,11 +36,16 @@ Then build something that makes the work better, faster, weirder, or more fun. S
   * celebrate work that got done! When a milestone closes, use Opus to create a [custom song + music video](https://www.reddit.com/r/ClaudeAI/comments/1wt2qwh/i_gave_opus_55_one_prompt_about_ai_fearmongering/).
   * Swipe on tickets, Tinder-style, to determine whether to do today or defer or delegate
 
-When you're done, add a screenshot, a link, and one sentence to your team's slide in the [show-and-tell deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit) (also under **Share your build** in the site's sidebar). A screenshot of a half-working thing counts.
+A screenshot of a half-working thing counts.
 
-### 4. Brief the CEO. (10 min)
+### 4. Share (10 min)
 
-We put the [show-and-tell deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit) on the big screen and a few teams walk through their slide. Nobody has to plug in a laptop.
+Add a screenshot, a link, and one sentence to your team's slide in the [show-and-tell deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit) (also under **Share your build** in the site's sidebar). We put the deck on the big screen and a few teams walk through their slide. Nobody has to plug in a laptop.
+
+### House rules
+
+* **Use the fake data, not yours.** Don't paste real company or patient data into an AI tool. The whole point of the fake projects is that you don't have to
+* **Build on one laptop.** Everyone weighs in, one person drives
 
 ### Why this exercise
 
@@ -58,11 +57,13 @@ We put the [show-and-tell deck](https://docs.google.com/presentation/d/1qWSAZKHw
 
 ### The projects
 
-| #  | Project                                                                                                  |
-| :- | :------------------------------------------------------------------------------------------------------- |
-| 1  | [PillPrice launch](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=pillprice)             |
-| 2  | [Bayberry integration](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=merger)            |
-| 3  | [Fern rollout](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=ai-rollout)                |
-| 4  | [OOP Navigators day one](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=onboarding)      |
-| 5  | [OOP Primary Care opening](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=credentialing) |
-| 6  | [Larkfield breach response](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=breach)       |
+Your table number decides your project.
+
+| Tables | Project |
+| ------ | ------- |
+| 1–5 | [PillPrice launch](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=product-launch) |
+| 6–9 | [Bayberry integration](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=merger) |
+| 10–13 | [Fern rollout](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=ai-rollout) |
+| 14–18 | [OOP Navigators day one](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=onboarding) |
+| 19–24 | [OOP Primary Care opening](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=credentialing) |
+| 25–27 | [Larkfield breach response](https://outofpockethealth.github.io/kf-Cursed-proj-mgmt/?board=data-breach) |

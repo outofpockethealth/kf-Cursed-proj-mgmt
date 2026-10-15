@@ -59,7 +59,7 @@ Paste this whole file into Claude chat when you generate a new board, and ask fo
 
 **project**
 - All fields are required except `slackChannel` (defaults to the slug) and `brief`
-- `brief` is shown in a box at the top of the Board and Gantt views and at the top of the Copy for AI paste
+- `brief` is shown at the top of every board page, next to the Copy for AI button, and at the top of the Copy for AI paste
 - `today` is the fake "today" inside the story. Overdue badges and the timeline use it, not the real date
 - `deadlineLabel` is what the header pill and timeline line say, like "Launch day" or "Go-live"
 
@@ -78,7 +78,7 @@ Paste this whole file into Claude chat when you generate a new board, and ask fo
 - `updated` is free text, like "2 weeks ago"
 - `desc` is free text; line breaks are kept
 - `comments` is optional: a list of `{ "author", "time", "text" }`, oldest first, shown in the ticket drawer
-- `commentCount` is optional. Use it when a ticket "has 43 comments" but only a few are written out
+- `commentCount` is optional. Use it when a ticket "has 43 comments" but only a few are written out. The drawer then says "N older comments hidden. Showing the latest M"
 - Ids can use any prefix (`L-`, `M-`, `CRED-`)
 
 **slack**
@@ -94,3 +94,7 @@ Paste this whole file into Claude chat when you generate a new board, and ask fo
 2. Point a table at it in `tables.json`: `{ "table": 2, "board": "<slug>" }`
 3. Run `node scripts/check.js` and fix anything marked ✗
 4. Commit and push. GitHub Pages updates in about a minute
+
+## Authors
+
+Every comment author and Slack author must be a name in `team`. `node scripts/check.js` fails otherwise.

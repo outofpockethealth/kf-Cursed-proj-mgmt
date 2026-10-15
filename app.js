@@ -36,17 +36,27 @@ async function loadLanding(){
   try { m = await getJSON("tables.json"); }
   catch { showMsg("Couldn't load the list of projects. Refresh to try again"); return; }
   document.title = m.title || "Projects";
-  const boards = await Promise.all(m.tables.map(t => slugOk(t.board) ? getJSON(`boards/${t.board}.json`).catch(()=>null) : null));
-  const rows = m.tables.map((t,i)=>{
+  // Several tables share a board, so list each board once with its table numbers
+  const groups = [];
+  for(const t of m.tables){
+    const g = groups.find(x => x.board === t.board);
+    g ? g.tables.push(t.table) : groups.push({board:t.board, tables:[t.table]});
+  }
+  const ranges = ns => ns.sort((a,b)=>a-b).reduce((out,n)=>{
+    const last = out[out.length-1];
+    last && n === last[1]+1 ? last[1] = n : out.push([n,n]); return out;
+  },[]).map(([a,b]) => a===b ? `${a}` : `${a}–${b}`).join(", ");
+  const boards = await Promise.all(groups.map(g => slugOk(g.board) ? getJSON(`boards/${g.board}.json`).catch(()=>null) : null));
+  const rows = groups.map((t,i)=>{
     const b = boards[i];
-    if(!b) return `<tr class="soon"><td class="tno">${esc(t.table)}</td><td colspan="5">Coming soon</td></tr>`;
+    if(!b) return `<tr class="soon"><td class="tno">${esc(ranges(t.tables))}</td><td colspan="5">Coming soon</td></tr>`;
     const p = b.project, key = projKey(b), lead = projLead(b);
     const late = b.tickets.filter(x => x.due && x.status !== "Done" && D(x.due) < D(p.today)).length;
     const blocked = b.tickets.filter(x => x.status === "Blocked").length;
     const left = days(p.today, p.deadline);
-    const q = norm([t.table, p.name, p.product, key, lead].join(" "));
+    const q = norm([...t.tables.map(n=>`table ${n}`), p.name, p.product, key, lead].join(" "));
     return `<tr data-href="?board=${esc(t.board)}" data-q="${esc(q)}">
-      <td class="tno">${esc(t.table)}</td>
+      <td class="tno">${esc(ranges(t.tables))}</td>
       <td><a class="pcell" href="?board=${esc(t.board)}"><span class="pav sm" style="background:${projColor(t.board)}">${esc(p.name[0])}</span><span><b>${esc(p.name)}</b><small>${esc(p.product || "")}</small></span></a></td>
       <td class="key">${esc(key)}</td>
       <td class="lead"><span class="who"><span class="av" style="background:${PALETTE[0]}">${esc(lead[0]||"?")}</span>${esc(lead)}</span></td>
@@ -55,7 +65,7 @@ async function loadLanding(){
     </tr>`;
   }).join("");
   $("#landing").innerHTML = `<div class="lhead"><h1>Projects</h1><p class="sub">${esc(m.subtitle||"")}</p></div>
-    <div class="dirwrap"><table class="dir"><thead><tr><th>Table</th><th>Name</th><th class="key">Key</th><th class="lead">Lead</th><th>Due</th><th>Health</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    <div class="dirwrap"><table class="dir"><thead><tr><th>Tables</th><th>Name</th><th class="key">Key</th><th class="lead">Lead</th><th>Due</th><th>Health</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   $("#landing").className = "landing";
   $("#landing").hidden = false;
   $("#q").placeholder = "Search projects";
@@ -133,7 +143,12 @@ function initBoard(SLUG, DATA, PROMPT){
   $("#pav").style.background = projColor(SLUG);
   $("#slackcount").textContent = SLACK.length || "";
   $("#psub").textContent = PROJECT.product || PROJECT.company;
-  if(PROJECT.brief){ $("#brief").textContent = PROJECT.brief; $("#briefwrap").hidden = false; }
+  if(PROJECT.brief){ $("#brief").textContent = PROJECT.brief; $("#brief").hidden = false; }
+  const TEAM = Object.entries(DATA.team || {}).filter(([,p]) => p.role);
+  $("#teamcount").textContent = TEAM.length;
+  $("#teamlist").innerHTML = TEAM.map(([n,p]) => `<li>${avatar(n)}<span><b>${esc(n)}</b> ${esc(p.role)}</span></li>`).join("");
+  // Open on wide screens, collapsed on phones
+  $("#teampanel").open = matchMedia("(min-width: 761px)").matches;
   const left = days(PROJECT.today, PROJECT.deadline);
   $("#launchpill").textContent = `${LABEL} ${fmt(PROJECT.deadline)}, ` +
     (left > 1 ? `${left} days away` : left === 1 ? "tomorrow" : left === 0 ? "today" : `${-left} days ago`);
@@ -240,7 +255,7 @@ function initBoard(SLUG, DATA, PROMPT){
       <div class="desc">${t.desc?esc(t.desc):"No description"}</div>
       ${commentTotal(t) ? `<h3 class="chead">Comments <span class="count">${commentTotal(t)}</span></h3>
       ${comments(t).map(c=>`<div class="smsg">${avatar(c.author)}<div><div><span class="sname">${esc(c.author||"Unknown")}</span><span class="stime">${esc(c.time||"")}</span></div><div class="stext">${mentions(c.text||"")}</div></div></div>`).join("")}
-      ${commentTotal(t) > comments(t).length ? `<p class="more-c">${commentTotal(t) - comments(t).length} older comments not shown</p>` : ""}` : ""}
+      ${commentTotal(t) > comments(t).length ? `<p class="more-c">${commentTotal(t) - comments(t).length} older comments hidden. Showing the latest ${comments(t).length}</p>` : ""}` : ""}
     </aside>`;
     $("#drawerroot .close").focus();
   }
@@ -256,31 +271,28 @@ function initBoard(SLUG, DATA, PROMPT){
   });
 
   /* Raw data */
-  function asMarkdown(){
-    let s = `# ${PROJECT.name}\n\n${PROJECT.brief ? PROJECT.brief + "\n\n" : ""}Company: ${PROJECT.company}\nProduct: ${PROJECT.product}\nToday: ${fmtY(PROJECT.today)}\n${LABEL}: ${fmtY(PROJECT.deadline)}. ${PROJECT.context||""}\n\n## Team\n`;
-    for(const [n,p] of Object.entries(PEOPLE)) if(p.role) s += `- ${n}: ${p.role}\n`;
-    s += `\n# Tickets\n`;
-    for(const c of COLUMNS){
-      s += `\n## ${c.key}\n`;
-      for(const t of T.filter(x=>x.status===c.key)){
-        s += `\n${t.id}: ${t.title}\nOwner: ${t.owner||"None"}\nStart: ${t.start||"Not set"}\nDue: ${t.due||"Not set"}\n`;
-        if(t.note) s += `Status note: ${t.note}\n`;
-        if(waitingStr(t)) s += `Waiting on: ${waitingStr(t)}\n`;
-        s += `Last updated: ${t.updated}\nDescription: ${t.desc||"None"}\n`;
-        if(commentTotal(t)) s += `Comments (${commentTotal(t)}):\n` + comments(t).map(c=>`  [${c.time||""}] ${c.author||"Unknown"}: ${c.text||""}\n`).join("");
+  // Reads like three raw exports from different systems: tracker, Slack, meeting notes
+  function asExport(){
+    const L = [];
+    L.push("=== PROJECT BRIEF ===", PROJECT.brief || PROJECT.product || "", `Today: ${PROJECT.today}. ${LABEL}: ${PROJECT.deadline}`, "");
+    L.push("=== TEAM ===", ...TEAM.map(([n,p]) => `${n}: ${p.role}`), "");
+    L.push("=== EXPORT 1 OF 3: PROJECT TRACKER (all tickets) ===");
+    for(const t of T){
+      L.push(`${t.id} | ${t.title} | Status: ${t.status}${t.note ? ` ("${t.note}")` : ""} | Owner: ${t.owner || "None"} | Start: ${t.start || "Not set"} | Due: ${t.due || "Not set"} | Waiting on: ${waitingStr(t) || "Nothing"} | Last updated: ${t.updated}`);
+      L.push(`Description: ${t.desc || "None"}`);
+      if(commentTotal(t)){
+        L.push(`Comments (${commentTotal(t)}):`, ...comments(t).map(c => `  ${c.author} (${c.time}): ${c.text}`));
       }
+      L.push("");
     }
-    if(hasSlack){
-      s += `\n# Slack: #${PROJECT.slackChannel || SLUG}\n\n`;
-      for(const m of SLACK) s += `[${m.time||""}] ${m.author||"Unknown"}: ${m.text||""}\n`;
-    }
+    L.push("=== EXPORT 2 OF 3: SLACK CHANNEL ===", ...SLACK.map(m => `${m.author} (${m.time}): ${m.text}`), "");
+    L.push("=== EXPORT 3 OF 3: MEETING NOTES ===");
     if(hasNotes){
-      s += `\n# Meeting notes: ${NOTES.title||""}\n\n`;
-      if(NOTES.date) s += `Date: ${NOTES.date}\n`;
-      if(NOTES.attendees && NOTES.attendees.length) s += `Attendees: ${NOTES.attendees.join(", ")}\n`;
-      s += "\n" + (NOTES.bullets||[]).map(b=>`- ${b}`).join("\n") + "\n";
-    }
-    return s;
+      L.push([NOTES.title, NOTES.date].filter(Boolean).join(", "));
+      if(NOTES.attendees && NOTES.attendees.length) L.push(`Attendees: ${NOTES.attendees.join(", ")}`);
+      L.push(...(NOTES.bullets || []).map(b => `- ${b}`));
+    } else L.push("None");
+    return L.join("\n") + "\n";
   }
   function asCSV(){
     const cols = ["id","title","status","status_note","owner","start","due","waiting_on","last_updated","description","comment_count","comments"];
@@ -289,11 +301,11 @@ function initBoard(SLUG, DATA, PROMPT){
   }
   function asJSON(){
     const team = Object.fromEntries(Object.entries(PEOPLE).filter(([,p])=>p.role).map(([n,p])=>[n,{role:p.role}]));
-    return JSON.stringify({project:PROJECT,team,
+    return JSON.stringify({project:PROJECT,brief:PROJECT.brief||null,team,
       tickets:T.map(t=>({id:t.id,title:t.title,status:t.status,status_note:t.note||null,owner:t.owner||null,start:t.start||null,due:t.due||null,waiting_on:waitingStr(t)||null,last_updated:t.updated,description:t.desc||null,comment_count:commentTotal(t),comments:comments(t)})),
       slack:SLACK, notes:hasNotes?NOTES:null},null,2);
   }
-  const FMTS = {md:{fn:asMarkdown,ext:"md",type:"text/markdown"},csv:{fn:asCSV,ext:"csv",type:"text/csv"},json:{fn:asJSON,ext:"json",type:"application/json"}};
+  const FMTS = {md:{fn:asExport,ext:"txt",type:"text/plain"},csv:{fn:asCSV,ext:"csv",type:"text/csv"},json:{fn:asJSON,ext:"json",type:"application/json"}};
   let cur = "md";
   function renderRaw(){
     $("#raw").value = FMTS[cur].fn();
@@ -306,8 +318,8 @@ function initBoard(SLUG, DATA, PROMPT){
   }));
   /* Copy for AI: one paste with the starter prompt and all the data */
   function asAIPrompt(){
-    const tpl = PROMPT || "Below is a made-up project. Help us build a fun feature for it.\n\n{{data}}";
-    const data = "---\n\n" + asMarkdown();
+    const tpl = PROMPT || "Below are three raw exports from a made-up project that's in trouble. What's really going wrong?\n\n{{data}}";
+    const data = asExport();
     return tpl.includes("{{data}}") ? tpl.replace(/\{\{data\}\}/g, data) : tpl + "\n\n" + data;
   }
   async function copyText(text, msg){
@@ -321,6 +333,7 @@ function initBoard(SLUG, DATA, PROMPT){
     }
   }
   $("#aibtn").addEventListener("click", ()=>copyText(asAIPrompt(), "Copied. Paste it into your AI tool"));
+  $("#heroai").addEventListener("click", ()=>copyText(asAIPrompt(), "Copied. Paste it into Claude"));
 
   function toast(msg){ const el=$("#toast"); el.textContent=msg; el.classList.add("show"); setTimeout(()=>el.classList.remove("show"),1800); }
   $("#copybtn").addEventListener("click", ()=>copyText($("#raw").value, "Copied"));
@@ -336,7 +349,6 @@ function initBoard(SLUG, DATA, PROMPT){
     document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected", x===b?"true":"false"));
     document.querySelectorAll(".view").forEach(v=>v.hidden = v.id!=="view-"+b.dataset.view);
     $("#crumbview").textContent = b.textContent.replace(/\d+/g,"").trim();
-    $("#briefwrap").hidden = !PROJECT.brief || !["board","timeline"].includes(b.dataset.view);
     if(b.dataset.view==="timeline"){ renderTimeline(); applySearch(); }
   }));
   // Search filters tasks on the Board and Gantt; typing from another view jumps to the Board

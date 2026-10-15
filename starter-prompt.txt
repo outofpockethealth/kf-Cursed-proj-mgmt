@@ -1,13 +1,7 @@
-We're at a workshop called Cursed Project Management. Below is a made-up project: its board, a Slack thread, and meeting notes. None of it is real.
+You're helping a team at a workshop. Below are three raw exports from a made-up project that's in trouble: the project tracker, a Slack channel, and meeting notes. None of it is real.
 
-Step 1. What's the biggest risk to this project? Give us your top 3, and for each one, point to the ticket ID, Slack message, or meeting note that shows it.
-
-Step 2. Then help us build something with this project that makes the work better, faster, weirder, or more fun. Give us 4 ideas, one for each:
-- Better: catch problems people miss
-- Faster: get up to speed on the project in seconds instead of minutes
-- Weirder: something strange that still tells the truth about the project
-- More fun: make managing this project less miserable
-
-Use specific tickets, people, and messages from this project in each idea. Then build the one we pick. Make it something you can show right here in the chat, with nothing we'd need to install or run.
+1. Before you answer anything, list the 5 questions you'd ask of this data to find what's really going wrong, fastest.
+2. Answer them. Then give us the 3 biggest problems, ranked. For each one, cite the ticket ID, Slack message, or meeting note that proves it. Call out any status ("on track", "90% done", "Done") that the evidence contradicts.
+3. Then stop. We'll pick one problem and ask you to help us build something that makes it impossible to ignore.
 
 {{data}}

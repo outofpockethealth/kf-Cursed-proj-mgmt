@@ -44,6 +44,8 @@ function checkBoard(file) {
     if (t.comments !== undefined && !Array.isArray(t.comments)) errors.push(`${who}: "comments" must be a list`);
     for (const [j, c] of (Array.isArray(t.comments) ? t.comments : []).entries())
       for (const k of ["author", "text"]) if (!c[k]) errors.push(`${who}: comment #${j + 1} is missing "${k}"`);
+    for (const c of Array.isArray(t.comments) ? t.comments : [])
+      if (c.author && b.team && !b.team[c.author]) errors.push(`${who}: comment author "${c.author}" isn't in team`);
     if (t.commentCount !== undefined && !Number.isInteger(t.commentCount)) errors.push(`${who}: "commentCount" must be a whole number`);
   }
   for (const t of b.tickets)
@@ -51,8 +53,10 @@ function checkBoard(file) {
       if (!ids.has(w)) errors.push(`${t.id}: waiting on "${w}", which doesn't exist`);
 
   if (b.slack !== undefined && !Array.isArray(b.slack)) errors.push("slack must be a list");
-  for (const [i, m] of (Array.isArray(b.slack) ? b.slack : []).entries())
+  for (const [i, m] of (Array.isArray(b.slack) ? b.slack : []).entries()) {
     for (const k of ["author", "time", "text"]) if (!m[k]) errors.push(`slack message #${i + 1}: missing "${k}"`);
+    if (m.author && b.team && !b.team[m.author]) errors.push(`slack message #${i + 1}: author "${m.author}" isn't in team`);
+  }
   if (b.notes && b.notes.bullets !== undefined && !Array.isArray(b.notes.bullets)) errors.push("notes.bullets must be a list");
 
   return { errors, warnings, b };
