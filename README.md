@@ -10,8 +10,6 @@ We generated 6 projects' worth of tickets, blockers, and chaos. Your goal:
 2. **Find the ground truth** by building something with Claude, Claude Code, Codex, or Grok
 3. **Then use LLMs to make project management interfaces that are better, faster, funner, or just weirder**
 
-Everything here is made up: the companies, the people, the tickets.
-
 ### Why we're doing this
 
 * Ops can build custom software now
@@ -28,7 +26,10 @@ Everything here is made up: the companies, the people, the tickets.
 3. Open your project and hit **Copy for AI** (or **Download for Claude Code / Codex**)
 4. Paste it into Claude, Codex, Grok, or whatever you use. It finds the ground truth first
 5. Build!
-6. Put your demo in the [shared slide deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit), on your team's slide. A screenshot of a half-working thing counts
+6. **Put your demo in the [shared slide deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit), on your team's slide**
+
+> [!IMPORTANT]
+> **Put your demo in the [shared slide deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit), on your team's slide.** That's what we show on the big screen. A screenshot of a half-working thing counts
 
 ### Timing (70 min)
 
@@ -50,11 +51,6 @@ Everything here is made up: the companies, the people, the tickets.
 * **Faster:** Tinder, but for your tasks: swipe to do today, defer, or delegate. Cut through the backlog with a virtual chainsaw
 * **Funner:** Asana-style celebrations, but with characters in the public domain. Generate a song out of the tasks you completed ([example](https://x.com/anabology/status/2105325733312884869))
 * **Weirder:** Destroy costly meetings on the shared calendar with a magic eraser. Put a task in an NCIS-style interrogation room. Have duplicate tasks [eat each other, single-celled-organism style](https://www.youtube.com/watch?v=sq6Y54mxjOg). For inspiration, look up "terrible volume selector UX"
-
-### House rules
-
-* **Use the fake data, not yours.** Don't paste real company or patient data into an AI tool. The whole point of the fake projects is that you don't have to
-* **Build on one laptop.** Everyone weighs in, one person drives
 
 ### The projects
 
