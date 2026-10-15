@@ -10,26 +10,19 @@ We generated 6 projects' worth of tickets, blockers, and chaos. Your goal:
 2. **Find the ground truth** by building something with Claude, Claude Code, Codex, or Grok
 3. **Then use LLMs to make project management interfaces that are better, faster, funner, or just weirder**
 
-### Why we're doing this
+> [!IMPORTANT]
+> **BEFORE WE FINISH, ADD your demo in the [shared slide deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit), on your team's slide.** That's what we show on the big screen
 
-* Ops can build custom software now
-* Everyone hates project management, but you gotta have it. And people have very distinct preferences about it
-* AI makes you need more PM, not less. You're juggling agents and tools, jumping between them, and losing the thread every time. Getting back to the truth fast is the skill
-* Practice prototyping fast and fun, to make PM more ergonomic for you
-* Build in teams so you can see how other people work and think. We put the teams together using what you wrote in your applications
-* It's the end of the day, so it's also fun
 
-### How it works
+### What you need to do
 
 1. Go to **bit.ly/cursed-proj**
 2. Find your table number and project in Rolodex
 3. Open your project and hit **Copy for AI** (or **Download for Claude Code / Codex**)
-4. Paste it into Claude, Codex, Grok, or whatever you use. It finds the ground truth first
+4. Paste it into Claude, Codex, (Grok)
 5. Build!
 6. **Put your demo in the [shared slide deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit), on your team's slide**
 
-> [!IMPORTANT]
-> **Put your demo in the [shared slide deck](https://docs.google.com/presentation/d/1qWSAZKHwr5Omf9tsD9n-Sz15pPHfcKEG4OT9EiVVJ6g/edit), on your team's slide.** That's what we show on the big screen. A screenshot of a half-working thing counts
 
 ### Timing (70 min)
 
