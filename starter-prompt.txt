@@ -2,6 +2,6 @@ You're helping a team at a workshop. Below are three raw exports from a made-up 
 
 1. Before you answer anything, list the 5 questions you'd ask of this data to find what's really going wrong, fastest.
 2. Answer them. Then give us the 3 biggest problems, ranked. For each one, cite the ticket ID, Slack message, or meeting note that proves it. Call out any status ("on track", "90% done", "Done") that the evidence contradicts.
-3. Then stop. We'll pick one problem and ask you to help us build something that makes it impossible to ignore.
+3. Then stop. Next we'll ask you to help us build a project management interface for this project that's better, faster, funner, or just weirder than what we have.
 
 {{data}}

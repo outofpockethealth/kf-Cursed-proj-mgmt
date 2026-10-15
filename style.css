@@ -243,3 +243,5 @@ a.btn{display:inline-block;text-decoration:none;color:inherit}
 .teampanel summary::before{content:"\25B8";display:inline-block;width:12px}
 .teampanel[open] summary::before{content:"\25BE"}
 .teampanel summary::-webkit-details-marker{display:none}
+.btn.big2{font-size:15px;padding:11px 16px;border-radius:8px}
+@media (max-width:760px){.btn.big2{width:100%}}

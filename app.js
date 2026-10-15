@@ -337,12 +337,15 @@ function initBoard(SLUG, DATA, PROMPT){
 
   function toast(msg){ const el=$("#toast"); el.textContent=msg; el.classList.add("show"); setTimeout(()=>el.classList.remove("show"),1800); }
   $("#copybtn").addEventListener("click", ()=>copyText($("#raw").value, "Copied"));
-  $("#dlbtn").addEventListener("click", ()=>{
-    const url = URL.createObjectURL(new Blob([FMTS[cur].fn()], {type:FMTS[cur].type+";charset=utf-8"}));
-    const a = Object.assign(document.createElement("a"), {href:url, download:`${SLUG}.${FMTS[cur].ext}`});
+  function download(text, filename, type){
+    const url = URL.createObjectURL(new Blob([text], {type:type+";charset=utf-8"}));
+    const a = Object.assign(document.createElement("a"), {href:url, download:filename});
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(()=>URL.revokeObjectURL(url), 1000);
-  });
+  }
+  $("#dlbtn").addEventListener("click", ()=>download(FMTS[cur].fn(), `${SLUG}.${FMTS[cur].ext}`, FMTS[cur].type));
+  // Claude Code and Codex work from files: same prompt and exports as Copy for AI, saved as one markdown file
+  $("#herodl").addEventListener("click", ()=>download(asAIPrompt(), `cursed-pm-${SLUG}.md`, "text/markdown"));
 
   /* Tabs */
   document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
