@@ -6,7 +6,7 @@
 
 We generated 6 projects' worth of tickets, blockers, and chaos. Your goal:
 
-1. **Parachute into a project**
+1. **Parachute into your assigned project**
 2. **Find the ground truth** by building something with Claude, Claude Code, Codex, or Grok
 3. **Then use LLMs to make project management interfaces that are better, faster, funner, or just weirder**
 
