@@ -16,8 +16,8 @@ We generated 6 projects' worth of tickets, blockers, and chaos. Your goal:
 
 ### What you need to do
 
-1. Go to **bit.ly/cursed-proj**
-2. Find your table number and project in Rolodex
+1. Go to **bit.ly/cursed-proj** ✅ - by reading this, you've already done this step
+2. Find your table number and project in [Rolodex](https://rolodex-oop.pages.dev/)
 3. Open your project and hit **Copy for AI** (or **Download for Claude Code / Codex**)
 4. Paste it into Claude, Codex, (Grok)
 5. Build!
@@ -43,7 +43,7 @@ We generated 6 projects' worth of tickets, blockers, and chaos. Your goal:
 
 * **Faster:** Tinder, but for your tasks: swipe to do today, defer, or delegate. Cut through the backlog with a virtual chainsaw
 * **Funner:** Asana-style celebrations, but with characters in the public domain. Generate a song out of the tasks you completed ([example](https://x.com/anabology/status/2105325733312884869))
-* **Weirder:** Destroy costly meetings on the shared calendar with a magic eraser. Put a task in an NCIS-style interrogation room. Have duplicate tasks [eat each other, single-celled-organism style](https://www.youtube.com/watch?v=sq6Y54mxjOg). For inspiration, look up "terrible volume selector UX"
+* **Weirder:** Destroy costly meetings on the shared calendar with a magic eraser. Put a task in an NCIS-style interrogation room. Have duplicate tasks [eat each other, single-celled-organism style](https://www.youtube.com/watch?v=sq6Y54mxjOg)
 
 ### The projects
 
